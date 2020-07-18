@@ -46,7 +46,6 @@ exports.signup = async (req, res) => {
    if (req.method == "POST") {
       const hashPassword = await bcrypt.hash(req.body.password, saltRounds)
 
-
       const username = req.body.username;
       const email = req.body.email;
       password = hashPassword;
@@ -62,12 +61,17 @@ exports.signup = async (req, res) => {
          });
       }
 
+// func full
+// id = uuid 
 
+// move to db folder
 
+//func insertNewUserToSQL 
+// var userId = uuid()
       let sql = "INSERT INTO `users`(username,email,password) VALUES (?, ? , ?)";
 
 
-      connection.query(sql, [username, email, password], (err) => {
+      connection.query(sql, [username, email, password], (err,results) => {
          if (err) {
             console.log({
                err
@@ -75,9 +79,25 @@ exports.signup = async (req, res) => {
 
          }
 
+         console.log(results)
+
+
+         // return results
+         //end of insert func on sql.js  
+
+// var sqlRes =  insertNewUserToSQL(usrname, email, password)
+ 
+ // var mongoResults = insertToMongo(sqlRes.uuid, rand())
+
+
+         //send mongoResults.randNumber + uuid + username back to client (render) 
+      
          message = "Succesfully! Your account has been created, please log in";
          res.render('contact.ejs', {
-            message: message
+            message: results
+            //sqlRes.name 
+            //sqlRes.uuid
+            //mongoResults.rand 
          });
       });
 
@@ -93,6 +113,8 @@ exports.login = function (req, res) {
       let username = req.body.username;
       let password = req.body.password;
 
+
+      //to db folder
       let sql = "SELECT * FROM `users` WHERE `username`='" + username + "' and password = '" + password + "'";
       connection.query(sql, function (err, results) {
          if (results.length) {
@@ -104,6 +126,9 @@ exports.login = function (req, res) {
             message = 'Wrong Credentials.';
             res.render('Login.ejs', {
                message: message
+               //
+               //
+               //
             });
          }
 
