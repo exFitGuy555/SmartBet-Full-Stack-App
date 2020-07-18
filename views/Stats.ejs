@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>NBA:FETCH&STAT</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/public/styles/css.css">
+    <link href="https://fonts.googleapis.com/css2?family=Graduate&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sriracha&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+    <script defer src="/public/scripts/main.js"></script>
+    <script defer src="/public/scripts/PlayersClass.js"></script>
+    <script defer src="/public/scripts/PlayerSTATSmenager.js"></script>
+    <script defer src="/public/scripts/ViewEvents.js"></script>
+
+</head>
+
+<body>
+    <div class="contain">
+
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/Stats">Stats</a></li>
+                    <li><a href="">Odds</a></li>
+                    <li><a href="/Contact">Contact</a></li>
+                </ul>
+            </nav>
+            <h2>WE BET SMART.</h2>
+            <!--             <img class="coin" src="/img/pngguru.com (22).png" alt="">
+ -->
+
+        </header>
+
+
+        <section>
+
+            <h2 class="sec-stat-h">Player's Statistics</h2>
+
+            <div class="Player-formwrap">
+                <form id="fields">
+                    <img id="jer" src="/public/images/jersey.png" alt="">
+                    <input autocomplete="off" id="player-name" class="prevent search form-control" type="text"
+                        placeholder="PLAYER NAME!">
+                    <input autocomplete="off" id="year" class="prevent search-year form-control" type="text"
+                        placeholder="ENTER A YEAR!">
+                    <button id="btn-boot" type="button" class="ml-2 btn btn-outline-warning">Search</button>
+                </form>
+                <div class="pyear-format">*Name ex.:Lebron james</div>
+                <div class="ppyear-format">*Year ex.:2018</div>
+            </div>p
+
+
+            <div class="showerr">THERE IS NO DATA IN THAT PLAYER NAME / YEAR</div>
+            <div class="teamerr">THERE IS NO DATA IN THAT Team NAME / YEAR</div>
+
+
+
+            <div id="ChartWrap">
+                <div id="parent">
+                </div>
+                <canvas id="Stat-chart"></canvas>
+
+            </div>
+
+
+
+
+
+            <div id="team-wrap" class="fixmarg">
+                <h2>Team's Stats</h2>
+                <div class="Team-formwrap">
+                    <img class="Team-logo1" src="/public/images/jersey.png" alt="">
+                    <img class="Team-logo2" src="/public/images/jersey.png" alt="">
+                    <img class="Team-logo3" src="/public/images/jersey.png" alt="">
+
+
+                    <form id="fields" class="team-field">
+                        <input autocomplete="off" id="team-name" class="prevent search form-control" type="text"
+                            placeholder="Enter Team NAME!">
+                        <input autocomplete="off" class="prevent team-search-year form-control" type="text"
+                            placeholder="ENTER A YEAR!">
+                        <button id="yearbtn-boot" type="button" class="ml-2 btn btn-outline-warning">Search</button>
+                    </form>
+                </div>
+
+                <div class="year-format">*Name ex.:Miami heat</div>
+                <div class="year-format">*Year ex.:2018-2019</div>
+
+            </div>
+
+
+
+            <div id="Team-ChartWrap">
+                <div id="parent">
+                </div>
+                <canvas id="teamStat-chart" width="1000" height="500"></canvas>
+
+            </div>
+
+        </section>
+
+        <article>
+            <h2>Share Your thoughts and Bet together!</h2>
+            <p>Another cool Feature We have in SmartBet is Our BetMarket<br>
+                BetMarket offers you the option to share with others users your<br>
+                feelimg about some specific games and stats you aim to bet on, and allows<br> you
+                not only to speak your mind out and use others help, but also<br> Cooperate
+                with others and bet together.</p>
+            <img src="/public/images/money.png" alt="">
+            <br>
+            <h3 class="goto-odds">So Now after you got your STATS, Dont Forget to check our <a
+                    href="/public/views/Stats.html">ODDS</a> page to
+                complete your SmartBet</h3>
+        </article>
+
+
+        <article class="kobe kobe-stat">
+            <h2>In the Memory of the GREAT Kobe Bryant</h2>
+            <img id="mamba" src="/public/images/kob.png" alt="" width='300' height="200">
+        </article>
+
+
+        <Footer id="footer-stats">
+            <h1 id="power" class="display-3">Powered by @FINK</h1>
+            <p id="power1" class="display-3">WE BET SMART.</p>
+
+        </Footer>
+
+
+
+
+    </div>
+</body>
+
+
+
+
+
+
+
+</body>
+
+</html>

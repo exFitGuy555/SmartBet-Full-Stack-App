@@ -1,0 +1,934 @@
+.contain {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 450px 200px 200px;
+    overflow: hidden;
+
+
+}
+
+body,
+html {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+
+}
+
+.parent {
+    text-align: center;
+    margin-top: 30%;
+    width: 300px;
+    margin-left: 17%;
+    font-family: helvetica;
+
+}
+
+
+
+.Players-blob {
+
+    width: 450px;
+    height: 450px;
+    grid-row: 1;
+
+
+
+}
+
+#jer {
+    position: relative;
+
+
+}
+
+
+.sec-stat-h {
+    width: 335px;
+    margin-top: -8.5em;
+    border-bottom: 1px dotted black;
+    position: relative;
+    left: 14.5em;
+
+}
+
+.Team-logo1 {
+    position: relative;
+    top: -24em;
+    left: 5em;
+    transform: scale(0.7)
+}
+
+.Team-logo2 {
+    position: relative;
+    top: -24em;
+    left: -20em;
+    transform: scale(0.7)
+}
+
+.Team-logo3 {
+    position: relative;
+    top: -24em;
+    left: -45em;
+    transform: scale(0.7)
+}
+
+
+
+#btn-boot {
+    color: white;
+    font-family: 'Sriracha',
+        cursive;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    background-color: black;
+    position: relative;
+    z-index: 1;
+
+}
+
+
+#yearbtn-boot {
+    color: white;
+    font-family: 'Sriracha',
+        cursive;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    background-color: black;
+    position: relative;
+    left: 47.7em;
+    z-index: 1;
+
+}
+
+
+#btn-boot:hover {
+    color: white;
+    background-color: rgb(100, 98, 98);
+    z-index: 2;
+
+}
+
+
+#team-name {
+    color: #552583;
+    font-family: 'Sriracha',
+        cursive;
+    text-align: center;
+    font-size: 0.8em;
+    width: 170px;
+    margin-left: 150px;
+    margin-top: -195px;
+    z-index: 1;
+
+
+
+}
+
+.search-year {
+    color: #552583;
+    font-family: 'Sriracha',
+        cursive;
+    text-align: center;
+    font-size: 0.8em;
+    width: 170px;
+    margin-left: 100px;
+    margin-top: 10px;
+    z-index: 1;
+
+
+}
+
+.team-search-year {
+    color: #552583;
+    font-family: 'Sriracha',
+        cursive;
+    text-align: center;
+    font-size: 0.8em;
+    width: 170px;
+    margin-left: 150px;
+    margin-top: 10px;
+    z-index: 1;
+
+
+}
+
+.team-search-year1 {
+    color: #552583;
+    font-family: 'Sriracha',
+        cursive;
+    text-align: center;
+    font-size: 0.8em;
+    width: 170px;
+    margin-left: 150px;
+    margin-top: 10px;
+    z-index: 1;
+
+
+}
+
+.search-year:focus {
+    border: 2px solid #552583;
+}
+
+.h2 {
+    font-family: 'Sriracha',
+        cursive;
+
+}
+
+
+#ChartWrap {
+    grid-column: 2;
+    grid-row: 1;
+    transform: scale(0.6);
+    position: relative;
+    top: -43em;
+    left: 3em;
+}
+
+#Team-ChartWrap {
+    grid-column: 2;
+    grid-row: 2;
+    margin-top: 0;
+}
+
+#Stat-chart {
+    position: relative;
+    left: 150PX;
+    top: 50PX;
+    opacity: 1;
+    margin-bottom: -60em;
+    width: 1000px;
+    height: 450px;
+}
+
+#teamStat-chart {
+    margin-top: 40em;
+    position: relative;
+    top: -55em;
+    left: 150PX;
+    transform: scale(0.6);
+    opacity: 1;
+}
+
+.fixmarg {
+    opacity: 1;
+}
+
+.year-format {
+    z-index: 1000;
+    color: black;
+    position: relative;
+    top: -39em;
+    left: 7.5em;
+    font-size: 0.75em;
+    font-family: 'Graduate';
+    font-weight: bold;
+
+}
+
+.pyear-format {
+    z-index: 1000;
+    color: black;
+    position: relative;
+    top: 1em;
+    left: -5em;
+    font-size: 0.75em;
+    font-family: 'Graduate';
+    font-weight: bold;
+
+}
+
+.ppyear-format {
+    z-index: 1000;
+    color: black;
+    position: relative;
+    top: 1em;
+    left: -7.5em;
+    font-size: 0.75em;
+    font-family: 'Graduate';
+    font-weight: bold;
+
+}
+
+
+
+.Player-formwrap {
+    text-align: center;
+    transition: 800ms ease-in-out;
+    transition: scale(0.6)
+}
+
+#fields input {
+    position: relative;
+    left: 32em;
+    font-size: 18PX;
+    box-shadow: 0 0 10px 552583(0, 0, 0, .3);
+    box-shadow: 5px 0 20px 0 BLACK;
+    color: black;
+    font-weight: bold;
+
+}
+
+.team-field {
+    position: relative;
+    top: -30em;
+    left: -39em;
+}
+
+#player-name {
+    color: #552583;
+    font-family: 'Sriracha',
+        cursive;
+    text-align: center;
+    font-size: 0.8em;
+    width: 170px;
+    margin-left: 100px;
+    margin-top: -250px;
+    z-index: 1;
+
+
+
+}
+
+
+#team-wrap {
+    position: relative;
+    left: 34em;
+    top: 40em;
+    transition: 800ms ease-in-out;
+
+}
+
+header {
+    grid-row: 1;
+    grid-column: 1/-1;
+    height: 160px;
+    background-color: rgba(192, 192, 192, 0.562);
+    box-shadow: 0 0 10px #00000098
+}
+
+header h2 {
+    text-align: center;
+    margin-top: 30px;
+    font-family: 'Graduate',
+        cursive;
+
+}
+
+.coin {
+    transform: scale(0.3);
+    position: relative;
+    top: -17em;
+    left: 45em;
+}
+
+header nav ul {
+    display: flex;
+    list-style-type: none;
+    position: relative;
+    top: 130px;
+    margin-left: -2em;
+
+
+
+}
+
+header nav ul li {
+    padding-right: 30px;
+    font-weight: bold;
+    font-family: 'Graduate',
+        cursive;
+}
+
+header nav ul li a {
+    color: Black;
+}
+
+header nav ul li a:hover {
+    opacity: 0.7;
+    color: black;
+    text-decoration: none;
+}
+
+section {
+    grid-row: 2/6;
+    grid-column: 1/-1;
+    width: 100%;
+}
+
+
+section h2 {
+    margin-left: 4em;
+    margin-top: -7em;
+    font-family: 'Graduate',
+        cursive;
+
+}
+
+.secondh {
+    margin-left: 4em;
+    margin-top: 2em;
+    font-family: 'Graduate',
+        cursive;
+
+}
+
+section p {
+    margin-left: 6.3em;
+    font-size: 1.3em;
+    font-family: 'Graduate',
+        cursive;
+
+}
+
+.section-pics {
+    position: relative;
+    left: 60em;
+    top: -18em;
+}
+
+.section-pics .arr {
+    width: 16%;
+    transform: rotate(-30deg);
+    position: relative;
+    left: 18em;
+    top: -5em;
+
+
+}
+
+.section-pics .dolla {
+    width: 20%;
+    position: relative;
+    left: -15em;
+    top: 4em;
+    box-shadow: 0 0 10px 552583(0, 0, 0, .3);
+    box-shadow: 5px 0 20px 0 black;
+    filter: grayscale(50%);
+
+
+}
+
+.section-pics .fingers {
+    width: 17%;
+    position: relative;
+    top: -14em;
+    left: -34em;
+
+}
+
+section .score-area {
+    position: relative;
+    top: -23em;
+}
+
+.logo1 {
+    height: 150px;
+    margin-left: 15em;
+    margin-top: 2em;
+    transition: 200ms all ease-in;
+
+}
+
+.logo2 {
+    height: 200px;
+    margin-left: 7em;
+    margin-top: 2em;
+    transition: 200ms all ease-in;
+
+}
+
+.logo3 {
+    height: 200px;
+    margin-left: 7em;
+    margin-top: 2em;
+    transition: 200ms all ease-in;
+
+}
+
+#logomotion:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.table {
+    width: 80%;
+    text-align: center;
+    margin-left: 10%;
+    margin-top: 5em;
+    opacity: 0.9;
+    box-shadow: 0 0 10px #00000098;
+    background-color: black;
+    color: white;
+    font-family: 'Graduate',
+        cursive;
+}
+
+
+
+
+
+
+
+
+.display-3 {
+    text-align: center;
+    position: relative;
+    top: -5em;
+
+}
+
+.paragraph-home {
+    text-align: center;
+    font-family: 'Graduate',
+        cursive;
+    font-size: 1.3em;
+    margin-left: 12em;
+    margin-right: 12em;
+    top: -17em;
+    position: relative;
+}
+
+#live {
+    width: 160px;
+    height: 160px;
+    margin-left: 15em;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+
+}
+
+#charts {
+    width: 200px;
+    height: 200px;
+    margin-left: 43em;
+    margin-top: -21.9em;
+}
+
+#MEGA {
+    width: 150px;
+    height: 150px;
+    margin-left: 70em;
+    margin-top: -21em;
+    margin-bottom: 1em;
+}
+
+.card {
+    background-color: rgba(192, 192, 192, 0.562);
+    box-shadow: 0 0 10px #00000098;
+    position: relative;
+    top: -20em;
+    height: 29vw;
+}
+
+
+#livep {
+    width: 200px;
+    margin-left: 12em;
+    font-family: 'Graduate',
+        cursive;
+}
+
+#chartp {
+    width: 200px;
+    margin-left: 34em;
+    margin-top: -1.5em;
+    font-family: 'Graduate',
+        cursive;
+}
+
+#Megap {
+    width: 200px;
+    margin-left: 53.5em;
+    margin-top: -0.4em;
+    font-family: 'Graduate',
+        cursive;
+}
+
+#note {
+    font-family: 'Graduate',
+        cursive;
+    font-weight: bold;
+    margin-left: 2em;
+    margin-top: 1em;
+    font-size: 0.8em;
+
+}
+
+Footer {
+    margin-top: 4em;
+    grid-row: 5;
+    background-color: black;
+    grid-column: 1/-1;
+    height: 10VW;
+
+
+}
+
+#footer-stats {
+    margin-top: 4em;
+    grid-row: 8;
+    background-color: black;
+    grid-column: 1/-1;
+    height: 10VW;
+
+
+}
+
+#power {
+    font-size: 1em;
+    color: white;
+    margin-top: 13em;
+}
+
+#power1 {
+    font-size: 2em;
+    color: white;
+    display: flex;
+    font-family: 'Graduate',
+        cursive;
+
+}
+
+#livescore {
+    position: relative;
+    top: 3.2em;
+    left: 3.3em;
+    font-size: 3em;
+    font-family: 'Graduate';
+}
+
+#get-score-btn {
+    z-index: 99;
+}
+
+label {
+    display: block;
+    font-family: 'Graduate',
+        cursive;
+}
+
+input,
+label {
+    margin-left: 20em;
+    margin: .4rem 0;
+}
+
+#datep {
+    font-family: 'Graduate',
+        cursive;
+    position: relative;
+    left: 36em;
+    top: 4.5em;
+}
+
+#datep label {
+    position: relative;
+    top: 1em;
+}
+
+
+
+#notes {
+    position: relative;
+    top: -15em;
+    left: 16em;
+    font-family: 'Bangers',
+        cursive;
+    font-size: 1.5em;
+    display: none;
+    transition: 300ms ease-in;
+}
+
+article {
+    grid-row: 5;
+    grid-column: 2/-1;
+    margin-top: 5em;
+}
+
+article h2 {
+    font-family: 'Graduate';
+    font-size: 2.8em;
+}
+
+article p {
+    font-family: 'Graduate';
+    font-size: 1.5em;
+}
+
+article img {
+    float: right;
+    position: relative;
+    top: -25em;
+    left: 2em;
+    transform: scale(0.7)
+}
+
+.goto-odds {
+    font-family: 'Graduate';
+    font-size: 3em;
+    font-weight: bold;
+
+
+}
+
+.goto-odds a {
+    font-family: 'Graduate';
+    color: rgb(68, 97, 61);
+
+}
+
+.kobe {
+    grid-row: 5;
+    margin-top: -5em;
+    color: black;
+    text-align: center;
+    font-family: 'Pacifico',
+        cursive;
+
+}
+
+.kobe-stat {
+    grid-row: 8;
+    color: black;
+    text-align: center;
+    font-family: 'Pacifico',
+        cursive;
+
+}
+
+.kobe h2 {
+    margin-left: -6em;
+    font-family: 'Pacifico',
+        cursive;
+    font-size: 3.5em;
+    background-color: rgba(192, 192, 192, 0.562);
+    box-shadow: 0 0 10px #00000098;
+    background: rgb(85, 37, 131);
+    background: linear-gradient(90deg, rgba(85, 37, 131, 1) 26%, rgba(253, 185, 39, 1) 66%);
+}
+
+.kobe-stat h2 {
+    margin-left: -6em;
+    font-family: 'Pacifico',
+        cursive;
+    font-size: 3.5em;
+    background-color: rgba(192, 192, 192, 0.562);
+    box-shadow: 0 0 10px #00000098;
+    background: rgb(85, 37, 131);
+    background: linear-gradient(90deg, rgba(85, 37, 131, 1) 26%, rgba(253, 185, 39, 1) 66%);
+}
+
+#mamba {
+    position: relative;
+    top: -8em;
+}
+
+
+.showerr {
+    color: red;
+    font-size: 1.5em;
+    font-family: 'Graduate';
+    position: relative;
+    left: 22em;
+    top: -6em;
+    opacity: 0;
+    z-index: -1;
+
+}
+
+.teamerr {
+    color: red;
+    font-size: 1.5em;
+    font-family: 'Graduate';
+    position: relative;
+    left: 22em;
+    top: 16em;
+    opacity: 0;
+    z-index: -10;
+}
+
+
+
+
+.container {
+    position: absolute;
+    width: auto;
+    height: auto;
+    top: calc(50% - 150px);
+    left: calc(40% - 160px);
+    border-radius: 15px 15px 15px 15px;
+    font-family: 'Graduate';
+}
+
+.c1 {
+    box-shadow: 0 0 10px grey;
+    background-color: white;
+    width: 300px;
+    height: 500px;
+    display: inline-block;
+    border-radius: 15px 15px 15px 15px;
+}
+
+.c11 {
+    background-image: url('/public/images/bball.jpg');
+    background-position-x: -18em;
+    background-position-y: -5em;
+    background-color: white;
+    width: 300px;
+    height: 400px;
+    display: inline-block;
+    position: absolute;
+    z-index: 4;
+    border-radius: 15px 15px 200px 200px;
+}
+
+#left,
+#right {
+    color: white;
+    display: inline-block;
+    width: 146px;
+    height: 500px;
+    background-color: white;
+    cursor: pointer;
+    text-align: center;
+}
+
+#left {
+    border-radius: 15px 0px 0px 15px;
+}
+
+#right {
+    border-radius: 15px 15px 15px 0px;
+}
+
+.left_hover {
+    color: black;
+    box-shadow: 5px 0 18px -10px #333;
+    z-index: 1;
+    position: absolute;
+    text-align: center;
+}
+
+.right_hover {
+    box-shadow: -5px 0 15px -10px #333;
+    z-index: 1;
+    position: absolute;
+    text-align: center;
+}
+
+.s1class {
+    color: #748194;
+    position: absolute;
+    bottom: 0;
+    left: 63%;
+    margin-left: -50%;
+}
+
+.s1class span,
+.s2class span {
+    display: block;
+    color: black;
+    text-align: center;
+    font-family: 'Graduate';
+}
+
+.su {
+    font-size: 20px;
+}
+
+.s2class {
+    color: #748194;
+    position: absolute;
+    bottom: 0;
+    right: 63%;
+    margin-right: -100%;
+}
+
+.mainhead {
+    color: white;
+    font-size: 24px;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.mainp {
+    color: white;
+    font-size: 13px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.c2 {
+    background-color: white;
+    width: 300px;
+    height: 500px;
+    border-radius: 15px;
+    position: absolute;
+    left: 370px;
+    display: inline-block;
+}
+
+.username {
+    font-weight: bold;
+    width: 200px;
+    margin: 0 35px 20px;
+    height: 35px;
+    padding: 6px 15px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    background: #F6F7F9;
+    color: #748194;
+    font-size: 14px;
+}
+
+
+
+.signup1 {
+    color: black;
+    font-size: 30px;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+}
+
+.signup2 {
+    color: #748194;
+    font-size: 20px;
+    text-align: center;
+}
+
+.signup {
+    display: initial;
+}
+
+.signin {
+    display: initial;
+}
+
+.btn-log {
+    font-weight: bold;
+    width: 230px;
+    margin: 0 35px 20px;
+    height: 45px;
+    padding: 6px 15px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    background: black;
+    color: white;
+    font-size: 14px;
+}
+
+.error {
+    background-color: rgba(255, 0, 0, 0.637);
+    margin-top: 5px;
+    border-radius: 3px;
+    text-align: center;
+    opacity: 0;
+}

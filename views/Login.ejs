@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>NBA:FETCH&STAT</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/public/styles/css.css">
+    <link href="https://fonts.googleapis.com/css2?family=Graduate&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sriracha&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <script defer src="/public/scripts/main.js"></script>
+    <script defer src="/public/scripts/PlayersClass.js"></script>
+    <script defer src="/public/scripts/PlayerSTATSmenager.js"></script>
+    <script defer src="/public/scripts/ViewEvents.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+</head>
+
+<body>
+    <div class="contain">
+
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/Stats">Stats</a></li>
+                    <li><a href="">Odds</a></li>
+                    <li><a href="/Contact">Contact</a></li>
+                </ul>
+            </nav>
+            <h2>WE BET SMART.</h2>
+            <!--             <img class="coin" src="/img/pngguru.com (22).png" alt="">
+ -->
+        </header>
+
+
+        <section>
+            <div class="container">
+                <!-- on large screns style="margin-top: -100px;" -->
+                <div class="c1">
+
+                    <div class="c11">
+                    </div>
+
+                    <div id="right">
+                        <h1 class="s2class"><span>SIGN</span><span class="su">In</span></h1>
+                    </div>
+                </div>
+                <div class="c2">
+                    <form action="/login" method="POST" class="signup">
+                        <% if (message.length > 0) { %>
+                        <div class="alert alert-success col-sm-12"><%= message %></div>
+                        <% } %>
+                        <h1 class="signup">SIGN In</h1>
+                        <div class="err"></div>
+                        <br><br><br><br>
+                        <input id="username" name="username" type="username" class="username" placeholder="Username" />
+                        <input id="password" name="password" type="password" placeholder="Password*" class="username"
+                            required />
+                        <button class="btn-log submit click">Sign In</button>
+                        <a href="/contact">Sign Up</a>
+                    </form>
+
+
+                </div>
+            </div>
+        </section>
+
+        <article class="kobe kobe-stat">
+            <h2>In the Memory of the GREAT Kobe Bryant</h2>
+            <img id="mamba" src="/public/images/kob.png" alt="" width='300' height="200">
+        </article>
+
+
+        <Footer id="footer-stats">
+            <h1 id="power" class="display-3">Powered by @FINK</h1>
+            <p id="power1" class="display-3">WE BET SMART.</p>
+
+        </Footer>
+
+
+
+
+    </div>
+</body>
+
+</html>
