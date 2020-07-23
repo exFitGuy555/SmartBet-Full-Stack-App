@@ -1,28 +1,16 @@
-const mysql = require('mysql');
 const Joi = require("@hapi/joi");
 const bcrypt = require('bcrypt');
 const saltRounds = 12;
-
-//------------------------------SQL Connection---------------------------------------------------------
-let connection = mysql.createConnection({
-   host: 'localhost',
-   user: 'exFitguy555',
-   password: 'Wwewwe55',
-   database: 'SmartBet'
-});
-
-connection.connect((err) => {
-   if (err) {
-      console.log({
-         err
-      })
-   }
-   console.log('Connected to Mysql...')
-});
-
-
-global.db = connection;
-
+const {
+   insertNewUserToSQL,
+   connection, checkPassword
+} = require('../db/Sql');
+const {
+   createMongoUser, User, getExistingUserMongo
+} = require('../db/Mongo'); // פונקצית ההופסת משתמש למונגו + מספר רנדמולי
+const {
+   Connection
+} = require("mongoose");
 
 //---------------------------------------------signup page call------------------------------------------------------
 
@@ -41,8 +29,19 @@ function validate(body) {
 }
 
 
-exports.signup = async (req, res) => {
+const signup = async (req, res) => {
    message = '';
+   const {
+      error
+   } = validate(req.body);
+
+   if (error) {
+      message = error.details.map((err) => err.message);
+      res.render('contact.ejs', {
+         message: message
+      });
+   }
+
    if (req.method == "POST") {
       const hashPassword = await bcrypt.hash(req.body.password, saltRounds)
 
@@ -50,132 +49,96 @@ exports.signup = async (req, res) => {
       const email = req.body.email;
       password = hashPassword;
 
-      const {
-         error
-      } = validate(req.body);
-
-      if (error) {
-         messagee = error.details.map((err) => err.message);
-         res.render('contact.ejs', {
-            message: messagee
-         });
-      }
-
-// func full
-// id = uuid 
-
-// move to db folder
-
-//func insertNewUserToSQL 
-// var userId = uuid()
-      let sql = "INSERT INTO `users`(username,email,password) VALUES (?, ? , ?)";
-
-
-      connection.query(sql, [username, email, password], (err,results) => {
-         if (err) {
-            console.log({
-               err
-            })
-
-         }
-
-         console.log(results)
-
-
-         // return results
-         //end of insert func on sql.js  
-
-// var sqlRes =  insertNewUserToSQL(usrname, email, password)
- 
- // var mongoResults = insertToMongo(sqlRes.uuid, rand())
-
-
-         //send mongoResults.randNumber + uuid + username back to client (render) 
       
-         message = "Succesfully! Your account has been created, please log in";
-         res.render('contact.ejs', {
-            message: results
-            //sqlRes.name 
-            //sqlRes.uuid
-            //mongoResults.rand 
-         });
-      });
+      //validate username and password
+       if ((password.length < 6 || username.length < 3)) {
+          console.log({
+            err
+          })
+       }
 
+
+      const sqlRes = insertNewUserToSQL(username, email, password);
+
+   
+       //mongo user creation
+      let mongoResults = createMongoUser(sqlRes[0], mongoNum,username)
+      console.log(mongoResults)
+      
+      //send mongoResults.randNumber + uuid + username back to client (render) 
+      res.render('dashboard.ejs', {
+         message: `hi ${sqlRes[1]} ${sqlRes[0]} ${mongoNum}`
+         //sqlRes.name 
+         //sqlRes.uuid
+         //mongoResults.rand 
+      });
    }
-};
+
+}
+
 
 //-----------------------------------------------login page call------------------------------------------------------
-exports.login = function (req, res) {
-   var message = '';
-   var sess = req.session;
 
-   if (req.method == "POST") {
-      let username = req.body.username;
-      let password = req.body.password;
+   const existSql = checkPassword;
+   
+ 
+ ///To do => => =>      resMongo=getExisingUser by his(resSql.uuid)
+//then render  the massage below
 
 
-      //to db folder
-      let sql = "SELECT * FROM `users` WHERE `username`='" + username + "' and password = '" + password + "'";
-      connection.query(sql, function (err, results) {
-         if (results.length) {
-            req.session.userId = results[0].id;
-            req.session.user = results[0];
-            console.log(results[0].id);
-            res.redirect('/Home/dashboard');
-         } else {
-            message = 'Wrong Credentials.';
-            res.render('Login.ejs', {
-               message: message
-               //
-               //
-               //
-            });
-         }
-
-      });
-   }
-
-};
 //-----------------------------------------------dashboard page functionality----------------------------------------------
-
-exports.dashboard = (req, res, next) => {
+//here we can call function sql and mongo again , extract uuid rand num and username again and render it in dashboard below as massage
+const dashboard = (req, res, next) => {
    let user = req.session.user.username,
       userId = req.session.userId;
-   console.log('userId=' + userId);
-   if (userId == null) {
-      res.redirect("/login");
-      return;
-   }
 
    let sql = "SELECT * FROM `users` WHERE `id`='" + userId + "'";
 
    connection.query(sql, (err, results) => {
-      message = `Hi  ${user}  welcome back`
+      
       res.render('dashboard.ejs', {
-         message: message
+         message: `Hi  ${user} ${userId} welcome back`
       });
+
    });
+
+         return userId,user
+
 };
+
+
+
 //------------------------------------logout functionality----------------------------------------------
-exports.logout = function (req, res) {
+const logout = function (req, res) {
    req.session.destroy(function (err) {
       res.redirect("/login");
 
    })
 };
 //--------------------------------render user details after login--------------------------------
-exports.profile = function (req, res) {
 
+const profile = function (req, res) {
    let userId = req.session.userId;
-   if (userId == null) {
-      res.redirect("/login");
-      return;
+   let user = req.session.user.username;
+  const getExistingUserMongo = User.findOne({
+        uuid: userId
+     })
+     .exec(function (err, user) {
+        if (user) {
+           console.log(user)
+        }
+
+     });
+
+      res.render('profile.ejs', {
+         message: `HI ${user}`
+      });
    }
 
-   let sql = "SELECT * FROM `users` WHERE `id`='" + userId + "'";
-   connection.query(sql, function (err, result) {
-      res.render('profile.ejs', {
-         data: result
-      });
-   });
-};
+module.exports = {
+   existSql,
+   signup,
+   dashboard,
+   logout,
+   profile,
+}
