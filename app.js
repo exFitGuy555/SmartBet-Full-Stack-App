@@ -16,6 +16,10 @@ const express = require('express'),
 const {
    existSql
 } = require('./routes/user')
+const {dashboard} = require('./db/Sql')
+const {
+  existMongo, Logout
+} = require('./routes/user')
 
 
 //const methodOverride = require('method-override');
@@ -52,12 +56,13 @@ app.get('/', routes.index); //call for HOME index page
 app.get('/stats', routes.stats); //call for STATS page
 app.get('/contact', routes.contact); //call for STATS page
 app.get('/login', routes.login); //call for STATS page
+app.get('/Odds', routes.Odds); //call for STATS page
 app.post('/signup', user.signup); //call for signup post 
 app.get('/login', routes.index); //call for login page
-app.post('/login', existSql); //call for login post
-app.get('/Home/dashboard', user.dashboard); //call for dashboard page after login
-app.get('/home/logout', user.logout); //call for logout
-app.get('/home/profile', user.profile); //call for logout
+app.post('/login', existSql); //call for login ==> will lead to dashboard
+app.get('/Home/dashboard', dashboard); //call for dashboard page after login
+app.get('/home/logout', Logout); //call for logout
+app.get('/home/profile', existMongo); //call for User Profile and Find user info from mongo
 ///Middleware
 
 app.listen(process.env.PORT || 8080)

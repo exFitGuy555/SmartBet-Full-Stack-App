@@ -54,24 +54,24 @@
 
  /*-----------------------------------------------------------------------------------Login Existing Users----------------------------------------------------------------------------------- */
  //Still need to ADD JWT 
- const checkPassword = (req, res) => {
+ const getExistingUserSql = (req, res) => {
      var sess = req.session;
      let username = req.body.username;
-     
+
      //first well check if Username is Correct
      let sql1 = "SELECT * FROM `users` WHERE username = '" + username + "' "
      connection.query(sql1, async (err, results) => {
-         if(results[0] == undefined){
-               res.render('contact.ejs', {
-                   message: 'Wrong Username'
-               })
+         if (results[0] == undefined) {
+             res.render('contact.ejs', {
+                 message: 'Wrong Username'
+             })
          }
          //then well check the crypted password and re-converted
          let uuid = results[0].id
          let userPassword = results[0].password
          let username = results[0].username
          const validPassword = await bcrypt.compare(req.body.password, userPassword)
-         if (validPassword != true) {       //if the validPassword return as false =  password incorrect
+         if (validPassword != true) { //if the validPassword return as false =  password incorrect
              res.render('contact.ejs', {
                  message: 'Wrong passWord'
              })
@@ -88,15 +88,43 @@
              })
          }
      })
+
+    
  }
 
+
+ const dashboard = (req, res) =>  {
+     message = 'User Logged Out, please login again'
+     if(req.session.user == undefined){
+         res.render('Contact.ejs'), { 
+             message: message
+         }
+         return;
+     }
+         user = req.session.user.username
+         userId = req.session.userId;
+
+     let sql = "SELECT * FROM `users` WHERE `id`='" + userId + "'";
+    
+     connection.query(sql, (err, results) => {
+        
+         res.render('dashboard.ejs', {
+             message: `Hi  ${user} welcome back`
+         });
+
+
+     });
+
+     return userId, user
+
+ };
 
 
  module.exports = {
      connection,
      insertNewUserToSQL,
-     checkPassword,
-
+     getExistingUserSql,
+     dashboard,
 
 
  }

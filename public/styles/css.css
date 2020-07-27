@@ -356,6 +356,15 @@ section {
     grid-row: 2/6;
     grid-column: 1/-1;
     width: 100%;
+
+}
+
+.section-odd {
+    grid-row: 2/6;
+    grid-column: 1/-1;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
 }
 
 
@@ -583,12 +592,30 @@ Footer {
     margin-top: 13em;
 }
 
+#power-odd {
+    font-size: 1em;
+    color: white;
+    margin-top: 13em;
+
+}
+
 #power1 {
     font-size: 2em;
     color: white;
     display: flex;
     font-family: 'Graduate',
         cursive;
+
+
+}
+
+#power1-odd {
+    font-size: 2em;
+    color: white;
+    display: flex;
+    font-family: 'Graduate',
+        cursive;
+    margin-top: 220px;
 
 }
 
@@ -934,21 +961,21 @@ a {
 }
 
 .section {
-   grid-row: 2/4;
-   margin-bottom: 5em;
-   grid-column: 1/-1;
-   width: 100%;
-   justify-content: center;
+    grid-row: 2/4;
+    margin-bottom: 5em;
+    grid-column: 1/-1;
+    width: 100%;
+    justify-content: center;
 
-   }
+}
 
-   .section>.container {
-       margin-top: -1em;
-       margin-left: -35em;
-       transform:scale(0.8);
-       
-  
-   }
+.section>.container {
+    margin-top: -1em;
+    margin-left: -35em;
+    transform: scale(0.8);
+
+
+}
 
 .gray-bg {
     background-color: #f5f5f5;
@@ -1084,7 +1111,108 @@ mark {
     color: #20247b;
 }
 
-#msg{
-font-weight: bold;
-font-size: 2em;
+#msg {
+    font-weight: bold;
+    font-size: 2em;
+}
+
+.oddcontain {
+    height: 100px;
+    width: 300px;
+    margin-top: -15em;
+    text-align: center;
+}
+
+.logo-right {
+    margin-top: 3em;
+}
+
+.vs {
+    font-family: 'Graduate';
+    font-size: 3em;
+    width: 100px;
+
+}
+
+.select-odd {
+    font-family: 'Graduate';
+    border: 2px solid black;
+    border-radius: 5px;
+}
+.select-oddB {
+    font-family: 'Graduate';
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.submit-odd {
+    width: 75px;
+    background-color: #fff;
+    border: 2px solid black;
+    border-radius: 5px;
+    font-family: 'Graduate';
+    padding: 2px;
+}
+
+.submit-odd:hover {
+    background-color: black;
+    color: white;
+    font-weight: bold;
+}
+
+
+.table-odd {
+    margin-bottom: 10em;
+    margin-top: -10em;
+}
+
+#footer-odd {
+    margin-top: -8em;
+}
+
+.plus-minus {
+    font-family: 'Graduate';
+    font-size: 10em;
+    margin-bottom: 200px;
+    margin-top: -2em;
+    margin-left: 1em;
+}
+
+.W-L {
+    font-family: 'Graduate';
+    font-size: 9.5em;
+    margin-bottom: 200px;
+    margin-top: -2.9em;
+    margin-left: 6.5em;
+}
+
+.get-info {
+    width: 150px;
+    height: 30px;
+    margin-left: 15em;
+       position: relative;
+       top: -12em;
+}
+
+.get-info-right {
+    width: 150px;
+    height: 30px;
+    margin-left: 45em;
+    position: relative;
+    top: -12em;
+    margin-bottom: 5em;
+}
+
+.sum{
+    width: 200px;
+    height: 50px;
+    color:black;
+    font-size: 2em;
+    border: 2px solid black;
+    border-radius: 10px;
+    text-align: center;
+    font-family: 'graduate';
+    margin-left: 240px;
+    position: relative;
+    top: -50px;
 }

@@ -175,7 +175,7 @@ const CreateTeamStats = (myObj) => {
 
 //Important to go over Chart.js docs to see its full potential,here is VERY low options involved.
 
-
+//get actual scores at live score home page
 const createLiveScore = (_arr) => {
     console.log(_arr)
     _arr.map(item => {
@@ -189,7 +189,7 @@ const createLiveScore = (_arr) => {
 
 }
 
-
+//get league option a home page
 const getLeagueOptions = (_arr) => {
     _arr.map(item => {
         let name = new LiveID(item.name, item.id)
@@ -197,7 +197,21 @@ const getLeagueOptions = (_arr) => {
 
 
     })
-
-
 }
 
+//Get teams name at odds option
+const getTeamsInfoForOdds = (_arr) => {
+    _arr.map(item => {
+        let details = new TeamInfo(item.id, item.name)
+        details.renderTeamName();
+    })
+}
+
+//Get teams name at odds option
+const getTeamsInfoForOddsB = (_arr) => {
+    _arr.map(item => {
+        let detailsB = new TeamInfoB(item.id, item.name)
+        detailsB.renderTeamNameB();
+    })
+}
+ 

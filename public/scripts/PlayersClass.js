@@ -28,14 +28,6 @@ class Live {
         this.Afq = _Afq
     }
 
-
-
-
-
-
-
-
-
     renderLive() {
         let newDiv = document.createElement('tbody');
         newDiv.id = 'empty'
@@ -94,4 +86,56 @@ class LiveID {
     }
 
 
+}
+
+class TeamInfo { 
+    constructor(_id, _name){
+        this.id = _id
+        this.name = _name
+    }
+
+    renderTeamName() {  //class="id" style="display:none">
+        let newNameOption = document.createElement('option')
+        newNameOption.id = 'get-name-option'
+        this.parent = document.querySelector('.select-odd')
+        this.parent.append(newNameOption)
+        newNameOption.innerHTML = 
+
+            `  <option class="bomb" selected="">${this.id}
+            <span class="span">${this.name}</span></option>`
+
+    }
+   
+    
+}
+
+class TeamInfoB { 
+    constructor(_id, _name){
+        this.id = _id
+        this.name = _name
+    }
+
+    renderTeamNameB() {  //class="id" style="display:none">
+        let newNameOption = document.createElement('option')
+        newNameOption.id = 'get-name-optionB'
+        this.parent = document.querySelector('.select-oddB')
+        this.parent.append(newNameOption)
+        newNameOption.innerHTML = 
+
+            `  <option selected="">${this.id}
+            <span>${this.name}</span></option>`
+
+    }
+   
+    
+}
+
+class OverUnderA {
+    constructor(_all){
+        this.all = _all
+    }
+
+    renderIt() {
+        alert(`this ${all}`)
+    }
 }

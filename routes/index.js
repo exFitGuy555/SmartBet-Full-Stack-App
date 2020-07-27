@@ -28,3 +28,8 @@ exports.login = (req, res) => {
 		message: message
 	})
 };
+
+exports.Odds = (req, res) => {
+	res.render('Odds', {
+	})
+};

@@ -3,16 +3,16 @@ const bcrypt = require('bcrypt');
 const saltRounds = 12;
 const {
    insertNewUserToSQL,
-   connection, checkPassword
+   connection, getExistingUserSql
 } = require('../db/Sql');
 const {
-   createMongoUser, User, getExistingUserMongo
-} = require('../db/Mongo'); // פונקצית ההופסת משתמש למונגו + מספר רנדמולי
+   createMongoUser, User, profile, logout
+} = require('../db/Mongo'); 
 const {
    Connection
 } = require("mongoose");
 
-//---------------------------------------------signup page call------------------------------------------------------
+//---------------------------------------------signup page call--------------------------------------------------------
 
 //first we validate all client-side info with hapi/joi
 function validate(body) {
@@ -77,68 +77,21 @@ const signup = async (req, res) => {
 }
 
 
-//-----------------------------------------------login page call------------------------------------------------------
+//-----------------------------------------------login page call---------------------------------------------------------
 
-   const existSql = checkPassword;
+   const existSql = getExistingUserSql;
+   const existMongo = profile
    
+
+//--------------------------------Logout---------------------------------------------------------------------------------
  
- ///To do => => =>      resMongo=getExisingUser by his(resSql.uuid)
-//then render  the massage below
+const Logout = logout;
 
 
-//-----------------------------------------------dashboard page functionality----------------------------------------------
-//here we can call function sql and mongo again , extract uuid rand num and username again and render it in dashboard below as massage
-const dashboard = (req, res, next) => {
-   let user = req.session.user.username,
-      userId = req.session.userId;
-
-   let sql = "SELECT * FROM `users` WHERE `id`='" + userId + "'";
-
-   connection.query(sql, (err, results) => {
-      
-      res.render('dashboard.ejs', {
-         message: `Hi  ${user} ${userId} welcome back`
-      });
-
-   });
-
-         return userId,user
-
-};
-
-
-
-//------------------------------------logout functionality----------------------------------------------
-const logout = function (req, res) {
-   req.session.destroy(function (err) {
-      res.redirect("/login");
-
-   })
-};
-//--------------------------------render user details after login--------------------------------
-
-const profile = function (req, res) {
-   let userId = req.session.userId;
-   let user = req.session.user.username;
-  const getExistingUserMongo = User.findOne({
-        uuid: userId
-     })
-     .exec(function (err, user) {
-        if (user) {
-           console.log(user)
-        }
-
-     });
-
-      res.render('profile.ejs', {
-         message: `HI ${user}`
-      });
-   }
-
+//----------------------------------Export-All---------------------------------------------------------------------------
 module.exports = {
    existSql,
    signup,
-   dashboard,
-   logout,
-   profile,
+      Logout,
+      existMongo,
 }

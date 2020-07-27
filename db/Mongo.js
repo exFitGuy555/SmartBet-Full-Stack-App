@@ -60,8 +60,13 @@ userSchema.methods.generateAuthToken = function () {
             mongoNum: this.mongoNum
         },
         process.env.JWT_TOKEN_KEY || "PrivateKey");
-    return token;
-};
+
+        return token;
+}
+
+const getToken = userSchema.methods.generateAuthToken()
+
+
 
 
 //creating the User Class + and users Collection
@@ -118,6 +123,53 @@ const createMongoUser = async (uuid, mongoNum) => {
 }
 
 
+const profile = function (req, res) {
+    message = 'User Logged Out, please login again'
+    if (req.session.user == undefined) {
+        res.render('Contact.ejs'), {
+            message: message
+        }
+        return;
+    }
+    let userId = req.session.userId;
+    let user = req.session.user.username;
+    const getExistingUserMongo = User.findOne({
+            uuid: userId
+        })
+        .exec(function (err, user) {
+            if (user) {
+                console.log(user)
+            }
+
+        });
+
+    jwt.verify(getToken, 'PrivateKey', (err) => {
+        if (err) {
+            console.log('Login not Protected');
+            res.render('login.ejs', {
+                message: `Login not Protected`,
+            });
+            
+        } else {
+            console.log('Login Protected');
+
+        }
+    })
+
+
+
+    res.render('profile.ejs', {
+        message: `HI ${user}`,
+    });
+
+}
+
+const logout = function (req, res) {
+    req.session.destroy(function (err) {
+        res.redirect("/login");
+
+    })
+};
 
 
 
@@ -125,4 +177,6 @@ module.exports = {
     User,
     createMongoUser,
     mongoConnect,
+    profile,
+    logout,
 }

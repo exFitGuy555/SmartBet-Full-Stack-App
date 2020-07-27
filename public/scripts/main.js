@@ -136,7 +136,7 @@ async function getTeamLiveOptions() {
 
 
 
-//getting the value from the Option field
+//Start of Getting value from LiveScore home PAGE
 let selectElement = document.getElementById("parentIdLive");
 let valueSelected = selectElement.options[selectElement.selectedIndex].value; // get selected option value
 
@@ -159,3 +159,131 @@ function getNumbers(string) {
     }
     return parseInt(int);
 }
+//End of Getting value from LiveScore home PAGE
+
+
+
+//fetching the teams names and ids for odd options selector
+async function getTeamsForOdds() {
+    let _url = 'https://api-basketball.p.rapidapi.com/teams?league=12&season=2019-2020';
+    const data = await fetch(_url, {
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-host": "api-basketball.p.rapidapi.com",
+            "x-rapidapi-key": "57d232847cmsh0a9d72b14f80278p12121ajsn9ee235948318"
+        }
+
+
+    }).then(resp => resp.json())
+    return data.response
+
+}
+
+
+//fetching the team stats and data
+async function getTeamDataOdds(id) {
+    let _url = `https://api-basketball.p.rapidapi.com/statistics?league=12&season=2018-2019&team=${id}`
+    const data = await fetch(_url, {
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-host": "api-basketball.p.rapidapi.com",
+            "x-rapidapi-key": "57d232847cmsh0a9d72b14f80278p12121ajsn9ee235948318"
+        }
+    }).then(resp => resp.json())
+    let newOdd = new OverUnderA(data.response.points.against.average.all)
+    let num = newOdd.all
+    return num
+
+}
+
+async function getTeamDataOddsB(id) {
+    let _url = `https://api-basketball.p.rapidapi.com/statistics?league=12&season=2018-2019&team=${id}`
+    const data = await fetch(_url, {
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-host": "api-basketball.p.rapidapi.com",
+            "x-rapidapi-key": "57d232847cmsh0a9d72b14f80278p12121ajsn9ee235948318"
+        }
+    }).then(resp => resp.json())
+    let newOdd = new OverUnderA(data.response.points.against.average.all)
+    return newOdd.all
+}
+
+
+//******stopped here , numbers indeed sum and rendered to the DOM , continue.... */
+async function sumOverUnder() {
+    let first = await getInfoFromOptionOddsB().then(id => getTeamDataOddsB(id))
+    let sec = await getInfoFromOptionOdds().then(id => getTeamDataOddsB(id))
+
+
+    sum = parseFloat(first) + parseFloat(sec);
+    let placeIt = document.querySelector('.sum')
+    var intvalue = Math.floor(sum);
+    placeIt.innerHTML = intvalue;
+
+}
+
+
+
+
+
+
+
+
+
+//------------------------------------------------------------left side team---------------------------------------------------------------
+//Start of Getting value from select team at Odds PAGE - OVER UNDER BET
+let selectElementOddsA= document.querySelector(".select-odd");
+let valueSelectedOdds = selectElementOddsA.options[selectElementOddsA.selectedIndex].value; // get selected option value
+
+
+
+async function getInfoFromOptionOdds() {
+    let selectElementOddsAA = document.querySelector(".select-odd");
+    let valueSelectedOddB = selectElementOddsAA.options[selectElementOddsAA.selectedIndex].value; // get selected option value
+  
+
+    return getNumbersB(valueSelectedOddB)
+}
+
+//extract only number from the option filed
+function getNumbersB(string) {
+    string = string.split(" ");
+    var int = "";
+    for (var i = 0; i < string.length; i++) {
+        if (isNaN(string[i]) == false) {
+            int += string[i];
+        }
+    }
+    return parseInt(int);
+}
+//END of Getting value from select team at Odds PAGE ==> will lead to page manager and getTotalA will return the final number
+
+/* --------------------------------------right side team------------------ */
+
+//Start of Getting value from select team at Odds PAGE - OVER UNDER BET
+let selectElementOddsB = document.querySelector(".select-oddB");
+let valueSelectedOddsB = selectElementOddsB.options[selectElementOddsB.selectedIndex].value; // get selected option value
+
+
+async function getInfoFromOptionOddsB() {
+    let selectElementOddsBB = document.querySelector(".select-oddB");
+    let valueSelectedOddBB = selectElementOddsBB.options[selectElementOddsBB.selectedIndex].value; // get selected option value
+
+    return getNumbersBB(valueSelectedOddBB)
+}
+
+//extract only number from the option filed
+function getNumbersBB(string) {
+    string = string.split(" ");
+    var int = "";
+    for (var i = 0; i < string.length; i++) {
+        if (isNaN(string[i]) == false) {
+            int += string[i];
+        }
+    }
+    return parseInt(int);
+}
+//END of Getting value from select team at Odds PAGE ==> will lead to page manager and getTotalA will return the final number
+
+
