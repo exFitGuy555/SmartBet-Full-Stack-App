@@ -26,6 +26,7 @@
 <body>
     <div class="contain">
 
+        
         <header>
             <nav>
                 <ul>
@@ -35,52 +36,71 @@
                     <li><a href="/Contact">Contact</a></li>
                 </ul>
             </nav>
+                         
             <h2>WE BET SMART.</h2>
             <!--             <img class="coin" src="/img/pngguru.com (22).png" alt="">
  -->
+
+
+            <h2 class="odd-h2">Calculate the Odds!</h2>
+
         </header>
 
 
         <section class="section-odd">
+
             <div class="oddcontain">
-                <img class="left-logo" src="/public/images/b.png" alt="">
                 
-                <select  class="select-odd">
-                    <option   selected="">Please Select</option>
-                </select> </div>
+                    <img class="left-logo" src="/public/images/b.png" alt="">
+
+                    <select name="teamA" class="select-odd">
+                        <option selected="">Please Select</option>
+                    </select>
+                    <output class="outputright"></output>
+
+                    <output class="outputLeft"></output>
+
+            </div>
             <div>
                 <div class="vs">VS.</div>
-                <input class="submit-odd" type="submit" value="Submit">
+                <input style="z-index: 1000;" class="submit-odd" type="submit" value="Get Odds">
             </div>
             <div class="oddcontain">
                 <img class="logo-right" src="/public/images/s.png" alt="">
-                <select class="select-oddB">
+                <select name="teamB" class="select-oddB">
                     <option selected="">Please Select</option>
-                </select> 
-            
+                </select>
             </div>
+
+
+            
     </div>
-                <div class="sum"></div>
-                     <div class="plus-minus">+ / -
-     </div> 
-     <div class="W-L">W / L</div> 
-  
-    </section>
 
     
+    </section>
 
     <article>
     </article>
 
-
-    <article class="kobe kobe-stat">
-        <h2>In the Memory of the GREAT Kobe Bryant</h2>
-        <img id="mamba" src="/public/images/kob.png" alt="" width='300' height="200">
+    <article style="margin-top: -42em;" class="kobe kobe-stat">
+       <form action="/Bids" class="save-form" method="POST">
+           <label for="">Save Your Calculation</label>
+           <label for="">OverUnder</label>
+           <input name="overUnder" type="text" class="total">
+           <label for="">Win / Lose</label>
+           <input role="textbox" name="WinLose" type="text" class="totalW">
+           <label for="">TeamA</label>
+           <input name="teamA" type="text" class="team1">
+           <label for="">TeamB</label>
+           <input name="teamB" type="text" class="team2">
+           <br>
+           <button class="SaveBids">SaveOdd</button>
+       </form>
     </article>
 
 
     <Footer id="footer-odd">
-        <h1 id="power-odd" class="display-3">Powered by @FINK</h1>
+        <h1 style="display: none;" id="power-odd" class="display-3">Powered by @FINK</h1>
         <p id="power1-odd" class="display-3">WE BET SMART.</p>
 
     </Footer>

@@ -1,14 +1,5 @@
 window.onload = () => {
   //creating the Event
-
-  $submitOdds.addEventListener("click", () => {
-    sumOverUnder()
-  })
-
-  getTeamsForOdds().then(getTeamsInfoForOddsB);
-  getTeamsForOdds().then(getTeamsInfoForOdds);
-
-
   $submit.addEventListener("click", () => {
     const name = $name.value;
     const season = $season.value;
@@ -25,6 +16,10 @@ window.onload = () => {
     document.querySelector(".Player-formwrap").style.transform =
       "translateX(-32em)";
   });
+
+  
+
+
 
   //creating the Team Event
   $teamsubmit.addEventListener("click", () => {
@@ -52,6 +47,10 @@ window.onload = () => {
       .then(() => {})
     );
   });
+
+
+  
+
 };
 //creating the DOM listeners for the players search
 $submit = document.getElementById("btn-boot");
@@ -68,7 +67,7 @@ $getScore = document.getElementById("get-score-btn");
 $scoreSeason = document.getElementById("start");
 
 //creating the DOM listener for submit Odds
-$submitOdds = document.querySelector(".submit-odd");
+$Odds = document.querySelector(".submit-odd");
 
 //coding the registration form
 $(document).ready(function () {
@@ -202,8 +201,8 @@ $(".select-odd").mouseup(function () {
 $(".select-oddB").mouseup(function () {
   const images = ["public/images/LOGOS/atlanta.png", "public/images/LOGOS/boston.png", "public/images/LOGOS/brooklyn.png", "public/images/LOGOS/npla.png", "public/images/LOGOS/chicago.png", "public/images/LOGOS/cleveland.png", "public/images/LOGOS/dallas.png", "public/images/LOGOS/Denver.png", "public/images/LOGOS/Detroit.png", "public/images/LOGOS/GoldenState.png", "public/images/LOGOS/Houston.png", "public/images/LOGOS/indiana.png", "public/images/LOGOS/clippers.png", "public/images/LOGOS/lakers.png", "public/images/LOGOS/mem.png", "public/images/LOGOS/mia.png", "public/images/LOGOS/bucks.png", "public/images/LOGOS/mina.png", "public/images/LOGOS/npla.png", "public/images/LOGOS/nyc.png", "public/images/LOGOS/okc.png", "public/images/LOGOS/Magic.png", "public/images/LOGOS/phila.png", "public/images/LOGOS/suns.png", "public/images/LOGOS/port.png", "public/images/LOGOS/kings.png", "public/images/LOGOS/spurs.png", "public/images/LOGOS/raps.png", "public/images/LOGOS/jazz.png", "public/images/LOGOS/wash.png"];
   console.log("yay");
-    let selectElementOddsBB = document.querySelector(".select-oddB");
-    let valueSelectedOddBB = selectElementOddsBB.options[selectElementOddsBB.selectedIndex].value; // get selected option value
+  let selectElementOddsBB = document.querySelector(".select-oddB");
+  let valueSelectedOddBB = selectElementOddsBB.options[selectElementOddsBB.selectedIndex].value; // get selected option value
 
   if (valueSelectedOddBB == "132 Atlanta Hawks") {
     document.querySelector(".logo-right").src = images[0];
@@ -270,4 +269,10 @@ $(".select-oddB").mouseup(function () {
   }
 });
 
+  $Odds.addEventListener("click", () => {
+    sumOverUnder()
+    sumWinsPrecentages()
+  })
 
+  getTeamsForOdds().then(getTeamsInfoForOdds)
+  getTeamsForOdds().then(getTeamsInfoForOddsB)

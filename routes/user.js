@@ -30,10 +30,16 @@ function validate(body) {
 
 
 const signup = async (req, res) => {
+        var sess = req.session;
+        let user = req.session.user
+
+     
+
    message = '';
    const {
       error
    } = validate(req.body);
+
 
    if (error) {
       message = error.details.map((err) => err.message);
@@ -56,24 +62,28 @@ const signup = async (req, res) => {
             err
           })
        }
-
-
+      var sess = req.session;
+      req.session.user = username
+      console.log(req.session)
       const sqlRes = insertNewUserToSQL(username, email, password);
 
    
        //mongo user creation
       let mongoResults = createMongoUser(sqlRes[0], mongoNum,username)
       console.log(mongoResults)
-      
+
+
       //send mongoResults.randNumber + uuid + username back to client (render) 
-      res.render('dashboard.ejs', {
-         message: `hi ${sqlRes[1]} ${sqlRes[0]} ${mongoNum}`
+      res.render('profile.ejs', {
+         message: `Hi ${username} Welcome to SmartBet`
          //sqlRes.name 
          //sqlRes.uuid
          //mongoResults.rand 
       });
-   }
 
+   }
+ 
+   return req.session.user
 }
 
 
@@ -86,6 +96,12 @@ const signup = async (req, res) => {
 //--------------------------------Logout---------------------------------------------------------------------------------
  
 const Logout = logout;
+
+
+//--------------------------------SaveBet---------------------------------------------------------------------------------
+
+
+
 
 
 //----------------------------------Export-All---------------------------------------------------------------------------

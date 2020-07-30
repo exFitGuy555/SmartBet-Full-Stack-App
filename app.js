@@ -1,31 +1,23 @@
-/* Call connect to Mongo */
-const {
-  mongoConnect
-} = require('./db/Mongo')
-
-mongoConnect()
-
-
-
 /*Module dependencies*/
 const express = require('express'),
   routes = require('./routes'),
   user = require('./routes/user'),
   http = require('http'),
+  sql = require('./db/Sql')
+  mongo = require('./db/Mongo'),
   path = require('path');
-const {
-   existSql
-} = require('./routes/user')
-const {dashboard} = require('./db/Sql')
-const {
-  existMongo, Logout
-} = require('./routes/user')
+
+
+
+  /* Call connect to Mongo */
+  mongo.mongoConnect()
 
 
 //const methodOverride = require('method-override');
 const session = require('express-session'); // *
 const app = express();
-let bodyParser = require("body-parser"); // 
+let bodyParser = require("body-parser"); //
+
 
 
 // all environments
@@ -46,7 +38,7 @@ app.use(session({ // *
   resave: false,
   saveUninitialized: true,
   cookie: {
-    maxAge: 60000
+    maxAge: 365 * 24 * 60 * 60 * 1000
   }
 }))
 
@@ -58,11 +50,13 @@ app.get('/contact', routes.contact); //call for STATS page
 app.get('/login', routes.login); //call for STATS page
 app.get('/Odds', routes.Odds); //call for STATS page
 app.post('/signup', user.signup); //call for signup post 
+app.post('/Bids', mongo.getOddsLogin); //call for SaveBet post 
 app.get('/login', routes.index); //call for login page
-app.post('/login', existSql); //call for login ==> will lead to dashboard
-app.get('/Home/dashboard', dashboard); //call for dashboard page after login
-app.get('/home/logout', Logout); //call for logout
-app.get('/home/profile', existMongo); //call for User Profile and Find user info from mongo
+app.get('/getBids', mongo.getBids); //call for login page
+app.post('/login', user.existSql); //call for login ==> will lead to Profile
+app.get('/home/logout', user.Logout); //call for logout
+app.get('/home/profile', user.existMongo); //call for User Profile and Find user info from mongo
+app.get('/home/check', mongo.check); //FOR WHEN I NEED DETAILS ABOUT THE USER FOR SAVING
 ///Middleware
 
 app.listen(process.env.PORT || 8080)

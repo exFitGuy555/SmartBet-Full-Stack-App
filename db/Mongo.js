@@ -36,7 +36,7 @@ const mongoConnect = (options = connectionOptions) => {
 
 /* -------------------------------------------------Mongo models------------------------------------------------ */
 
-//creating the UserSchema for saving data in DB
+//creating the UserSchema for saving Users in DB
 const userSchema = new mongoose.Schema({
     uuid: {
         type: String,
@@ -49,8 +49,24 @@ const userSchema = new mongoose.Schema({
     CreateAt: {
         type: Date,
         default: Date.now,
+    },
+    teamA: {
+        type: String,
+    },
+    teamB: {
+        type: String,
+    },
+    OverUnder: {
+        type: Number,
+    },
+    WinLose: {
+        type: String,
     }
 })
+
+
+
+
 
 
 //adding token to the Schema => signing at Login
@@ -61,7 +77,7 @@ userSchema.methods.generateAuthToken = function () {
         },
         process.env.JWT_TOKEN_KEY || "PrivateKey");
 
-        return token;
+    return token;
 }
 
 const getToken = userSchema.methods.generateAuthToken()
@@ -70,8 +86,8 @@ const getToken = userSchema.methods.generateAuthToken()
 
 
 //creating the User Class + and users Collection
-
 const User = mongoose.model("User", userSchema);
+//creating the User Class + and users Collection
 
 //validate when Inserting user to  Mongo
 function validateMongoUser(user) {
@@ -114,8 +130,9 @@ const createMongoUser = async (uuid, mongoNum) => {
         uuid,
         mongoNum
     });
-    console.log(user)
+
     user.save();
+
 
 
     console.log('New Mongo User Created...')
@@ -123,22 +140,25 @@ const createMongoUser = async (uuid, mongoNum) => {
 }
 
 
+//Go to profile after login
 const profile = function (req, res) {
-    message = 'User Logged Out, please login again'
+
+    message = '';
     if (req.session.user == undefined) {
         res.render('Contact.ejs'), {
-            message: message
+            message: 'User Logged Out, please login again'
         }
         return;
     }
     let userId = req.session.userId;
     let user = req.session.user.username;
+    let userAtSign = req.session.user;
     const getExistingUserMongo = User.findOne({
             uuid: userId
         })
         .exec(function (err, user) {
-            if (user) {
-                console.log(user)
+            if (err) {
+                console.log(err)
             }
 
         });
@@ -149,21 +169,103 @@ const profile = function (req, res) {
             res.render('login.ejs', {
                 message: `Login not Protected`,
             });
-            
+
         } else {
             console.log('Login Protected');
 
         }
     })
 
+    if (!userAtSign) {
+        res.render('profile.ejs', {
+            message: `HI ${user}`,
+        });
+    }
+
+    res.render('profile.ejs');
 
 
-    res.render('profile.ejs', {
-        message: `HI ${user}`,
-    });
 
 }
 
+
+
+
+
+//Go to profile after login
+const getOddsLogin = async function (req, res) {
+    const {
+        error
+    } = validateMongoUser(userSchema.body);
+    if (error) {
+        console.log({
+            err
+        })
+    }
+    message = 'Please login to Save Your Odds'
+    if (req.session.user == undefined) {
+        res.render('Contact.ejs'), {
+            message: message
+        }
+        return;
+    }
+    let userId = req.session.userId;
+    const getExistingUserMongo = User.findOne({
+            uuid: userId
+        })
+        .exec(function (err, user) {
+            if (user) {
+                console.log(userId)
+            }
+
+        });
+
+    jwt.verify(getToken, 'PrivateKey', (err) => {
+        if (err) {
+            console.log('Login not Protected');
+            res.render('login.ejs', {
+                message: `Login not Protected`,
+            });
+
+        } else {
+            console.log('Login Protected');
+
+        }
+    })
+
+    /* ---------------------------beggining of save Bid procces */
+
+    console.log(userId)
+    console.log(req.body)
+    const teamA = req.body.teamA
+    const teamB = req.body.teamB
+    const OverUnder = req.body.overUnder
+    const WinLose = req.body.WinLose
+
+
+    const uuid = userId;
+
+    usermongo = new User({
+        uuid,
+        teamA,
+        teamB,
+        OverUnder,
+        WinLose
+    });
+
+    usermongo.save();
+
+
+}
+
+
+
+
+
+
+
+
+//Logout function
 const logout = function (req, res) {
     req.session.destroy(function (err) {
         res.redirect("/login");
@@ -172,11 +274,52 @@ const logout = function (req, res) {
 };
 
 
+//checking the session cookie
+const check = (req, res) => {
+    console.log(req.session.user)
+}
 
+
+const getBids = (req, res)  => {
+ 
+    let userId = req.session.user.id
+    User.find({
+        uuid: userId
+    }, function (err, result) {
+        if (err) {
+            console.log(err)
+        }
+         
+                  
+      result.shift()
+      res.render('profileViewOdds.ejs', {
+          message: 
+          result.map(item => {
+              return `Teams: ${item.teamA} ${item.teamB} ||
+              OverUnder: ${item.OverUnder} ||
+              ${item.WinLose}`
+
+
+
+              
+          })
+      }) 
+ })
+}
+
+
+
+/* function getById(id) {
+    return users.find((user) => user.id == id);
+}
+ */
 module.exports = {
     User,
     createMongoUser,
     mongoConnect,
     profile,
     logout,
+    getOddsLogin,
+    check,
+    getBids
 }

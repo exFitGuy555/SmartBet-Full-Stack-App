@@ -597,6 +597,8 @@ Footer {
     color: white;
     margin-top: 13em;
 
+
+
 }
 
 #power1 {
@@ -605,6 +607,7 @@ Footer {
     display: flex;
     font-family: 'Graduate',
         cursive;
+
 
 
 }
@@ -616,6 +619,8 @@ Footer {
     font-family: 'Graduate',
         cursive;
     margin-top: 220px;
+    position: relative;
+    top: 60px;
 
 }
 
@@ -712,8 +717,7 @@ article img {
     margin-top: -5em;
     color: black;
     text-align: center;
-    font-family: 'Pacifico',
-        cursive;
+    font-family: 'Graduate';
 
 }
 
@@ -721,8 +725,8 @@ article img {
     grid-row: 8;
     color: black;
     text-align: center;
-    font-family: 'Pacifico',
-        cursive;
+    font-family: 'Graduate';
+
 
 }
 
@@ -1113,7 +1117,7 @@ mark {
 
 #msg {
     font-weight: bold;
-    font-size: 2em;
+    font-size: 1em;
 }
 
 .oddcontain {
@@ -1124,13 +1128,14 @@ mark {
 }
 
 .logo-right {
-    margin-top: 3em;
+    margin-top: 2em;
 }
 
 .vs {
     font-family: 'Graduate';
     font-size: 3em;
     width: 100px;
+    color: white;
 
 }
 
@@ -1139,6 +1144,7 @@ mark {
     border: 2px solid black;
     border-radius: 5px;
 }
+
 .select-oddB {
     font-family: 'Graduate';
     border: 2px solid black;
@@ -1147,11 +1153,15 @@ mark {
 
 .submit-odd {
     width: 75px;
-    background-color: #fff;
+    background-color: rgba(224, 19, 19, 0.568);
     border: 2px solid black;
     border-radius: 5px;
     font-family: 'Graduate';
     padding: 2px;
+    margin-top: 5.4em;
+    margin-left: -2.5em;
+    z-index: 1000;
+    margin-bottom: 5em;
 }
 
 .submit-odd:hover {
@@ -1167,20 +1177,24 @@ mark {
 }
 
 #footer-odd {
-    margin-top: -8em;
+    margin-top: -7em;
 }
 
 .plus-minus {
     font-family: 'Graduate';
     font-size: 10em;
     margin-bottom: 200px;
-    margin-top: -2em;
+    margin-top: -3em;
+    position: relative;
+    top: 180px;
     margin-left: 1em;
 }
 
 .W-L {
+    position: relative;
+    top: 180px;
     font-family: 'Graduate';
-    font-size: 9.5em;
+    font-size: 9.3em;
     margin-bottom: 200px;
     margin-top: -2.9em;
     margin-left: 6.5em;
@@ -1190,8 +1204,8 @@ mark {
     width: 150px;
     height: 30px;
     margin-left: 15em;
-       position: relative;
-       top: -12em;
+    position: relative;
+    top: -12em;
 }
 
 .get-info-right {
@@ -1203,16 +1217,109 @@ mark {
     margin-bottom: 5em;
 }
 
-.sum{
-    width: 200px;
-    height: 50px;
-    color:black;
+.sum {
+    width: 400px;
+    height: 200px;
+    color: red;
+    font-size: 4em;
+    border: 2px solid black;
+    border-radius: 10px;
+    text-align: center;
+    font-family: 'graduate';
+    margin-left: 150px;
+    top: -200px;
+}
+
+.WL {
+    width: 400px;
+    height: 200px;
+    color: black;
     font-size: 2em;
     border: 2px solid black;
     border-radius: 10px;
     text-align: center;
     font-family: 'graduate';
-    margin-left: 240px;
+    margin-left: auto;
+    margin-right: 150px;
     position: relative;
-    top: -50px;
+    top: -200px;
+    font-size: 1.5em;
+}
+
+.SaveBids {
+    width: 80px;
+    background-color: rgba(0, 153, 13, 0.596);
+    border: 2px solid black;
+    border-radius: 5px;
+    font-family: 'Graduate';
+    text-align: center;
+    z-index: 1000;
+    position: absolute;
+    padding: 2px;
+}
+
+.SaveBids:hover {
+    background-color: black;
+    color: white;
+    font-weight: bold;
+}
+
+
+
+.odd-h2 {
+    border-bottom: 1px dotted black;
+    width: 400px;
+    margin: auto;
+    position: relative;
+    top: 2.5em;
+}
+
+.outputLeft{
+    margin-top: -3em;
+    font-family: 'Graduate';
+    font-weight: bold;
+
+}
+.outputright {
+    margin-top: 4em;
+    margin-left: 59em;
+    font-family: 'Graduate';
+    font-weight: bold;
+
+}
+
+.save-form{
+    border: 1px solid black;
+    width: 300px;
+    height: 390px;
+    margin: auto;
+}
+
+.get-bets{
+       border-radius: 100% 65% 67% 0% / 100% 0% 100% 100%;
+       width: 500px;
+       height: 450px;
+       background-color: #F58426;
+       margin-top: 100px;
+       box-shadow: 0 0 10px 552583(0, 0, 0, .3);
+       padding: 15px;
+       box-shadow: 5px 0 20px 0 black;
+       background-image: url(/img/imageedit_1_2919634261.png);
+    margin-left: auto;
+    margin-top: -15em;
+    margin-right: 10em;
+    padding-top: 200px;
+    padding-left: 50px;
+    background-color: rgba(0, 0, 0, 0.198);
+    color:black;
+    font-weight: bold;
+    font-family: 'graduate';
+    overflow-x: hidden;
+    overflow-y: scroll;
+    line-height: 2;
+    
+}
+
+::-webkit-scrollbar {
+    display: none;
 }

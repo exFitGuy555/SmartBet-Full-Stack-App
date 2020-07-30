@@ -47,7 +47,7 @@
 
          }
      })
-
+     
      return [id, username]
  }
 
@@ -81,7 +81,7 @@
                  if (results.length) {
                      req.session.userId = results[0].id;
                      req.session.user = results[0];
-                     res.redirect('/Home/dashboard'); //stay like that + massage below in dashboard page functionality
+                     res.redirect('/Home/profile');
                      console.log(req.session.user)
                  }
 
@@ -93,38 +93,12 @@
  }
 
 
- const dashboard = (req, res) =>  {
-     message = 'User Logged Out, please login again'
-     if(req.session.user == undefined){
-         res.render('Contact.ejs'), { 
-             message: message
-         }
-         return;
-     }
-         user = req.session.user.username
-         userId = req.session.userId;
-
-     let sql = "SELECT * FROM `users` WHERE `id`='" + userId + "'";
-    
-     connection.query(sql, (err, results) => {
-        
-         res.render('dashboard.ejs', {
-             message: `Hi  ${user} welcome back`
-         });
-
-
-     });
-
-     return userId, user
-
- };
 
 
  module.exports = {
      connection,
      insertNewUserToSQL,
      getExistingUserSql,
-     dashboard,
 
 
  }

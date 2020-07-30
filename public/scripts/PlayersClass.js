@@ -134,8 +134,11 @@ class OverUnderA {
     constructor(_all){
         this.all = _all
     }
+}
 
-    renderIt() {
-        alert(`this ${all}`)
+
+class WinsLose {
+    constructor(_wins){
+        this.wins = _wins
     }
 }

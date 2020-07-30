@@ -180,7 +180,7 @@ async function getTeamsForOdds() {
 }
 
 
-//fetching the team stats and data
+//fetching the team stats and data - right team
 async function getTeamDataOdds(id) {
     let _url = `https://api-basketball.p.rapidapi.com/statistics?league=12&season=2018-2019&team=${id}`
     const data = await fetch(_url, {
@@ -196,6 +196,7 @@ async function getTeamDataOdds(id) {
 
 }
 
+//fetching the team stats and data - left team
 async function getTeamDataOddsB(id) {
     let _url = `https://api-basketball.p.rapidapi.com/statistics?league=12&season=2018-2019&team=${id}`
     const data = await fetch(_url, {
@@ -217,10 +218,11 @@ async function sumOverUnder() {
 
 
     sum = parseFloat(first) + parseFloat(sec);
-    let placeIt = document.querySelector('.sum')
+    let placeIt = document.querySelector('.total')
+    let placeIt2 = document.querySelector('.outputright')
     var intvalue = Math.floor(sum);
-    placeIt.innerHTML = intvalue;
-
+    placeIt.value = intvalue;
+    placeIt2.innerHTML = `OverUnder: ${intvalue}`
 }
 
 
@@ -233,7 +235,7 @@ async function sumOverUnder() {
 
 //------------------------------------------------------------left side team---------------------------------------------------------------
 //Start of Getting value from select team at Odds PAGE - OVER UNDER BET
-let selectElementOddsA= document.querySelector(".select-odd");
+let selectElementOddsA = document.querySelector(".select-odd");
 let valueSelectedOdds = selectElementOddsA.options[selectElementOddsA.selectedIndex].value; // get selected option value
 
 
@@ -241,7 +243,7 @@ let valueSelectedOdds = selectElementOddsA.options[selectElementOddsA.selectedIn
 async function getInfoFromOptionOdds() {
     let selectElementOddsAA = document.querySelector(".select-odd");
     let valueSelectedOddB = selectElementOddsAA.options[selectElementOddsAA.selectedIndex].value; // get selected option value
-  
+
 
     return getNumbersB(valueSelectedOddB)
 }
@@ -286,4 +288,56 @@ function getNumbersBB(string) {
 }
 //END of Getting value from select team at Odds PAGE ==> will lead to page manager and getTotalA will return the final number
 
+
+
+
+//fetching the team Wins percentage - left team
+async function getTeamWinsOdds(id) {
+    let _url = `https://api-basketball.p.rapidapi.com/statistics?league=12&season=2018-2019&team=${id}`
+    const data = await fetch(_url, {
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-host": "api-basketball.p.rapidapi.com",
+            "x-rapidapi-key": "57d232847cmsh0a9d72b14f80278p12121ajsn9ee235948318"
+        }
+    }).then(resp => resp.json())
+ return [data.response.team.name, data.response.games.wins.all.percentage]
+
+}
+
+//fetching the team Wins percentage - right team
+async function getTeamWinsOddsB(id) {
+    let _url = `https://api-basketball.p.rapidapi.com/statistics?league=12&season=2018-2019&team=${id}`
+    const data = await fetch(_url, {
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-host": "api-basketball.p.rapidapi.com",
+            "x-rapidapi-key": "57d232847cmsh0a9d72b14f80278p12121ajsn9ee235948318"
+        }
+    }).then(resp => resp.json())
+ return [data.response.team.name,data.response.games.wins.all.percentage]
+
+}
+
+
+
+async function sumWinsPrecentages() {
+    let firstW = await getInfoFromOptionOdds().then(id => getTeamWinsOdds(id))
+    let secW = await getInfoFromOptionOddsB().then(id => getTeamWinsOddsB(id))
+document.querySelector('.totalW').value = 
+`TeamA: ${firstW[0]} ${firstW[1]}% To Win|| TeamB: ${secW[0]} ${secW[1]}% To Win`
+document.querySelector(".team1").value = firstW[0]
+document.querySelector(".team2").value = secW[0]
+ document.querySelector('.outputLeft').innerHTML = `<div class="first">${firstW[0]} has  ${firstW[1]}% To Win </div><div class="sec">${secW[0]} has ${secW[1]}% To Win</div>`
+
+if (firstW[1] > secW[1]){
+    document.querySelector(".first").style.color = 'red'
+} else { 
+        document.querySelector(".sec").style.color = 'red'
+
+}
+
+
+
+}
 
