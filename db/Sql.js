@@ -81,7 +81,12 @@
                  if (results.length) {
                      req.session.userId = results[0].id;
                      req.session.user = results[0];
-                     res.redirect('/Home/profile');
+                    res.render('profileAfterSignIn.ejs', {
+                        message: `Hi ${username} Welcome to SmartBet`
+                        //sqlRes.name 
+                        //sqlRes.uuid
+                        //mongoResults.rand 
+                    });
                      console.log(req.session.user)
                  }
 
@@ -99,6 +104,4 @@
      connection,
      insertNewUserToSQL,
      getExistingUserSql,
-
-
  }

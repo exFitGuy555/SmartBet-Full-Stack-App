@@ -20,7 +20,7 @@ let bodyParser = require("body-parser"); //
 
 
 
-// all environments
+// all environments 
 app.set('port', process.env.PORT || 8080);
 app.set('views', __dirname + '/views'); // *
 app.set('view engine', 'ejs'); // *
@@ -33,6 +33,8 @@ app.use(bodyParser.json()); // *
 app.use("/public", express.static(__dirname + '/public'));
 
 // app.use(express.static(path.join(__dirname, 'public')));
+
+//creating Our Session utilities
 app.use(session({ // *
   secret: 'keyboard cat',
   resave: false,
@@ -44,19 +46,22 @@ app.use(session({ // *
 
 // development only
 
-app.get('/', routes.index); //call for HOME index page
+
+app.get('/', routes.index); //call for HOME  page
 app.get('/stats', routes.stats); //call for STATS page
-app.get('/contact', routes.contact); //call for STATS page
-app.get('/login', routes.login); //call for STATS page
-app.get('/Odds', routes.Odds); //call for STATS page
-app.post('/signup', user.signup); //call for signup post 
-app.post('/Bids', mongo.getOddsLogin); //call for SaveBet post 
-app.get('/login', routes.index); //call for login page
-app.get('/getBids', mongo.getBids); //call for login page
+app.get('/contact', routes.contact); //call for Contact page -- will change the name evetually
+app.get('/login', routes.login); //call for Login page
+app.get('/Odds', routes.Odds); //call for Odds page
+app.post('/signup', user.signup); //call for signup  
+app.post('/Bids', mongo.getOddsLogin); //call for SaveBet (SaveBids)  in Odds page
+app.get('/login', routes.index); //call for login page masseges
 app.post('/login', user.existSql); //call for login ==> will lead to Profile
 app.get('/home/logout', user.Logout); //call for logout
-app.get('/home/profile', user.existMongo); //call for User Profile and Find user info from mongo
-app.get('/home/check', mongo.check); //FOR WHEN I NEED DETAILS ABOUT THE USER FOR SAVING
+app.get('/MyOdds', mongo.getBids); //get allBids for current logged in user 
+app.get('/Saved', routes.Approval); //get allBids for current logged in user 
+app.get('/home/check', mongo.check); //JUST FOR CHECKING WILL DELETE AT THE END,FOR WHEN I NEED DETAILS ABOUT THE USER FOR SAVING
+
+
 ///Middleware
 
 app.listen(process.env.PORT || 8080)

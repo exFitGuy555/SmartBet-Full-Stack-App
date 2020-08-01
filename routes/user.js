@@ -74,8 +74,8 @@ const signup = async (req, res) => {
 
 
       //send mongoResults.randNumber + uuid + username back to client (render) 
-      res.render('profile.ejs', {
-         message: `Hi ${username} Welcome to SmartBet`
+      res.render('Login.ejs', {
+         message: `Hi ${username} Please Verify Your Account`
          //sqlRes.name 
          //sqlRes.uuid
          //mongoResults.rand 

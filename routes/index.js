@@ -33,3 +33,10 @@ exports.Odds = (req, res) => {
 	res.render('Odds', {
 	})
 };
+
+
+exports.Approval = (req, res) => {
+	res.render('Odds',{
+		message:'Your Odds Calculation Saved !'
+	})
+}

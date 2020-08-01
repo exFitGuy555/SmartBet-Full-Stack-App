@@ -26,41 +26,45 @@
 <body>
     <div class="contain">
 
-        
+
         <header>
             <nav>
-                    <ul>
-                       <li><a href="/">Home</a></li>
-                       <li><a href="/Stats">Stats</a></li>
-                       <li><a href="/Odds">Odds</a></li>
-                         <li><a href="/login">Log In</a></li>
-          <li><a href="/MyOdds">My Account</a></li>
-                    </ul>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/Stats">Stats</a></li>
+                    <li><a href="/Odds">Odds</a></li>
+                    <li><a href="/login">Log In</a></li>
+                    <li><a href="/MyOdds">My Account</a></li>
+                </ul>
             </nav>
-                         
+
             <h2>WE BET SMART.</h2>
             <!--             <img class="coin" src="/img/pngguru.com (22).png" alt="">
  -->
 
 
-            <h2 class="odd-h2">Calculate the Odds!</h2>
+ <% if (message.length > 0) { %>
+ <div class="alert alert-success col-sm-12 save"><%= message %></div>
+ <% } %>
 
         </header>
 
 
         <section class="section-odd">
 
-            
+
             <div class="oddcontain">
-                
-                    <img class="left-logo" src="/public/images/b.png" alt="">
+                  
 
-                    <select name="teamA" class="select-odd">
-                        <option selected="">Please Select</option>
-                    </select>
-                    <output class="outputright"></output>
 
-                    <output class="outputLeft"></output>
+                <img class="left-logo" src="/public/images/b.png" alt="">
+
+                <select name="teamA" class="select-odd">
+                    <option selected="">Please Select</option>
+                </select>
+                <output class="outputright"></output>
+
+                <output class="outputLeft"></output>
 
             </div>
             <div>
@@ -75,29 +79,29 @@
             </div>
 
 
-            
+
     </div>
 
-    
+
     </section>
 
     <article>
     </article>
 
     <article style="margin-top: -42em;" class="kobe kobe-stat">
-       <form action="/Bids" class="save-form" method="POST">
-           <label for="">Save Your Calculation</label>
-           <label for="">OverUnder</label>
-           <input name="overUnder" type="text" class="total">
-           <label for="">Win / Lose</label>
-           <input role="textbox" name="WinLose" type="text" class="totalW">
-           <label for="">TeamA</label>
-           <input name="teamA" type="text" class="team1">
-           <label for="">TeamB</label>
-           <input name="teamB" type="text" class="team2">
-           <br>
-           <button class="SaveBids">SaveOdd</button>
-       </form>
+        <form action="/Bids" class="save-form" method="POST">
+            <label for="">Save Your Calculation</label>
+            <label for="">OverUnder</label>
+            <input name="overUnder" type="text" class="total">
+            <label for="">Win / Lose</label>
+            <input role="textbox" name="WinLose" type="text" class="totalW">
+            <label for="">TeamA</label>
+            <input name="teamA" type="text" class="team1">
+            <label for="">TeamB</label>
+            <input name="teamB" type="text" class="team2">
+            <br>
+            <button class="SaveBids">SaveOdd</button>
+        </form>
     </article>
 
 

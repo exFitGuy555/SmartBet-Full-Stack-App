@@ -325,7 +325,7 @@ async function sumWinsPrecentages() {
     let firstW = await getInfoFromOptionOdds().then(id => getTeamWinsOdds(id))
     let secW = await getInfoFromOptionOddsB().then(id => getTeamWinsOddsB(id))
 document.querySelector('.totalW').value = 
-`TeamA: ${firstW[0]} ${firstW[1]}% To Win|| TeamB: ${secW[0]} ${secW[1]}% To Win`
+`${firstW[0]} ${firstW[1]} Vs. ${secW[0]} ${secW[1]}`
 document.querySelector(".team1").value = firstW[0]
 document.querySelector(".team2").value = secW[0]
  document.querySelector('.outputLeft').innerHTML = `<div class="first">${firstW[0]} has  ${firstW[1]}% To Win </div><div class="sec">${secW[0]} has ${secW[1]}% To Win</div>`

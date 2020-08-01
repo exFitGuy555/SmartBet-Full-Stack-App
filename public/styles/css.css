@@ -1115,10 +1115,6 @@ mark {
     color: #20247b;
 }
 
-#msg {
-    font-weight: bold;
-    font-size: 1em;
-}
 
 .oddcontain {
     height: 100px;
@@ -1296,20 +1292,16 @@ mark {
 }
 
 .get-bets{
-       border-radius: 100% 65% 67% 0% / 100% 0% 100% 100%;
-       width: 500px;
+       width: 700px;
        height: 450px;
        background-color: #F58426;
        margin-top: 100px;
        box-shadow: 0 0 10px 552583(0, 0, 0, .3);
        padding: 15px;
        box-shadow: 5px 0 20px 0 black;
-       background-image: url(/img/imageedit_1_2919634261.png);
-    margin-left: auto;
     margin-top: -15em;
-    margin-right: 10em;
-    padding-top: 200px;
-    padding-left: 50px;
+    margin-left: 40em;
+
     background-color: rgba(0, 0, 0, 0.198);
     color:black;
     font-weight: bold;
@@ -1322,4 +1314,56 @@ mark {
 
 ::-webkit-scrollbar {
     display: none;
+}
+
+
+
+.profile-welcome {
+  margin-top: -14em;
+  font-size: 1.2em;
+  font-family: 'graduate';
+  font-weight: bold;
+  width: 1200px;
+  line-height: 3;
+white-space: pre-line;
+padding-bottom: 2em;
+height: 500px;
+overflow-x: scroll;
+overflow-y: scroll;
+}
+
+
+
+.wrapper{
+    width: 100%;
+    text-align: center;
+}
+
+.your-saved{
+    font-weight: bold;
+    border-bottom: 1px dotted black;
+    width: 500px;
+    margin: auto;
+    margin-top: 1em;
+
+}
+
+#msg{
+    width: 100%;
+}
+
+.message-signup{
+    font-size: 2.5em;
+    width: 800px;
+    margin: auto;
+}
+
+.why-we-created {
+    margin-left: auto;
+    width: 800px;
+    font-size: 1.6em;
+}
+
+.save{
+    margin-top: 4em;
 }

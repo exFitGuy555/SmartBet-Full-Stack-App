@@ -5,7 +5,8 @@ const Joi = require('@hapi/joi')
 const jwt = require('jsonwebtoken')
 const {
     checkPassword
-} = require('./Sql')
+} = require('./Sql');
+const { render } = require('ejs');
 
 
 
@@ -255,6 +256,10 @@ const getOddsLogin = async function (req, res) {
 
     usermongo.save();
 
+    res.render('OddSave.ejs', { 
+        message: 'Your Odds calculation has been Saved!'
+    })
+
 
 }
 
@@ -267,6 +272,7 @@ const getOddsLogin = async function (req, res) {
 
 //Logout function
 const logout = function (req, res) {
+    console.log('user LoggedOut')
     req.session.destroy(function (err) {
         res.redirect("/login");
 
@@ -279,25 +285,31 @@ const check = (req, res) => {
     console.log(req.session.user)
 }
 
-
+//get all Bids that saved under the current logged in user
 const getBids = (req, res)  => {
  
-    let userId = req.session.user.id
+if(!req.session.user) {
+    return res.render('Login.ejs', {
+        message:'Please Login to reach Account'
+    })
+}
+     
+   
+    console.log(req.session.user.id)
     User.find({
-        uuid: userId
+        uuid: req.session.user.id
     }, function (err, result) {
         if (err) {
             console.log(err)
         }
+
          
-                  
+    /* shifting the first item because is the registration one without any Bids */
       result.shift()
-      res.render('profileViewOdds.ejs', {
+      res.render('profile.ejs', {
           message: 
           result.map(item => {
-              return `Teams: ${item.teamA} ${item.teamB} ||
-              OverUnder: ${item.OverUnder} ||
-              ${item.WinLose}`
+              return ` ${item.WinLose} OverUnder: ${item.OverUnder} || `
 
 
 
@@ -309,10 +321,10 @@ const getBids = (req, res)  => {
 
 
 
-/* function getById(id) {
-    return users.find((user) => user.id == id);
-}
- */
+
+
+
+ 
 module.exports = {
     User,
     createMongoUser,
@@ -321,5 +333,6 @@ module.exports = {
     logout,
     getOddsLogin,
     check,
-    getBids
+    getBids,
+    
 }
