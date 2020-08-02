@@ -1,4 +1,6 @@
 window.onload = () => {
+
+  
   //creating the Event
   $submit.addEventListener("click", () => {
     const name = $name.value;
@@ -21,7 +23,7 @@ window.onload = () => {
 
 
 
-  //creating the Team Event
+  //creating the getTeamData Event
   $teamsubmit.addEventListener("click", () => {
     const name = $teamname.value;
     const season = $teamyear.value;
@@ -39,6 +41,7 @@ window.onload = () => {
 
   getTeamLiveId().then(getLeagueOptions);
 
+  //getting Data for LiveScore at Home page
   $getScore.addEventListener("click", () => {
     let date1 = $scoreSeason.value;
     getInfoFromOption().then((id) =>
@@ -144,9 +147,6 @@ $(".select-odd").mouseup(function () {
 });
 
 
-
-
-
 //creating dynamic logo switches for right logo
 $(".select-oddB").mouseup(function () {
   const images = ["public/images/LOGOS/atlanta.png", "public/images/LOGOS/boston.png", "public/images/LOGOS/brooklyn.png", "public/images/LOGOS/npla.png", "public/images/LOGOS/chicago.png", "public/images/LOGOS/cleveland.png", "public/images/LOGOS/dallas.png", "public/images/LOGOS/Denver.png", "public/images/LOGOS/Detroit.png", "public/images/LOGOS/GoldenState.png", "public/images/LOGOS/Houston.png", "public/images/LOGOS/indiana.png", "public/images/LOGOS/clippers.png", "public/images/LOGOS/lakers.png", "public/images/LOGOS/mem.png", "public/images/LOGOS/mia.png", "public/images/LOGOS/bucks.png", "public/images/LOGOS/mina.png", "public/images/LOGOS/npla.png", "public/images/LOGOS/nyc.png", "public/images/LOGOS/okc.png", "public/images/LOGOS/Magic.png", "public/images/LOGOS/phila.png", "public/images/LOGOS/suns.png", "public/images/LOGOS/port.png", "public/images/LOGOS/kings.png", "public/images/LOGOS/spurs.png", "public/images/LOGOS/raps.png", "public/images/LOGOS/jazz.png", "public/images/LOGOS/wash.png"];
@@ -219,10 +219,14 @@ $(".select-oddB").mouseup(function () {
   }
 });
 
+   //fires the odds page functions
   $Odds.addEventListener("click", () => {
     sumOverUnder()
     sumWinsPrecentages()
   })
 
+  //create the teams options at odds page
   getTeamsForOdds().then(getTeamsInfoForOdds)
   getTeamsForOdds().then(getTeamsInfoForOddsB)
+
+

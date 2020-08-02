@@ -1,4 +1,5 @@
  /* -----------------------------creating the db  connection------------------------------------------------------- */
+ /* Module dependencies*/
  const mysql = require('mysql');
  const {
      v4: uuidV4
@@ -59,8 +60,8 @@
      let username = req.body.username;
 
      //first well check if Username is Correct
-     let sql1 = "SELECT * FROM `users` WHERE username = '" + username + "' "
-     connection.query(sql1, async (err, results) => {
+     let sqlQuery = "SELECT * FROM `users` WHERE username = '" + username + "' "
+     connection.query(sqlQuery, async (err, results) => {
          if (results[0] == undefined) {
              res.render('contact.ejs', {
                  message: 'Wrong Username'
@@ -76,8 +77,8 @@
                  message: 'Wrong passWord'
              })
          } else {
-             let sql2 = "SELECT * FROM `users` WHERE  password = '" + userPassword + "'";
-             connection.query(sql2, function (err, results) {
+             let secsqlQuery = "SELECT * FROM `users` WHERE  password = '" + userPassword + "'";
+             connection.query(secsqlQuery, function (err, results) {
                  if (results.length) {
                      req.session.userId = results[0].id;
                      req.session.user = results[0];
@@ -96,8 +97,6 @@
 
     
  }
-
-
 
 
  module.exports = {

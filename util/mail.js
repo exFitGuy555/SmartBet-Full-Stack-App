@@ -1,3 +1,8 @@
+/*
+
+NEED TO RE-CONNECT 
+MAILGUN BLOCKED MY USER BECUASE OF TOO MANY REQUESTS........TEST LIFE I GUESS
+
 const nodemailer = require('nodemailer');
 const mailGun = require('nodemailer-mailgun-transport');
 
@@ -34,10 +39,10 @@ const sendMail = (username, email, showerr) => {
 
     })
 };
-/* 
+
 sendMail('','','',function(err, data){
 
-}); */
+}); 
 
 
-module.exports = sendMail;
+module.exports = sendMail; */

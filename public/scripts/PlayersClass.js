@@ -12,7 +12,7 @@ class PLAYER {
     }
 }
 
-
+// Class for LiveScore - home page
 class Live {
     constructor(_parent, _home, _Aname, _H1q, _A1q, _H2q, _A2q, _H3q, _A3q, _Hfq, _Afq) {
         this.parent = _parent
@@ -66,6 +66,7 @@ class Live {
 }
 
 
+//LiveScore class - , getting the id - home page
 class LiveID {
     constructor(_name, _id) {
         this.name = _name
@@ -88,6 +89,7 @@ class LiveID {
 
 }
 
+//TeamA class - Odd page
 class TeamInfo { 
     constructor(_id, _name){
         this.id = _id
@@ -109,6 +111,7 @@ class TeamInfo {
     
 }
 
+//TeamB class - Odd page
 class TeamInfoB { 
     constructor(_id, _name){
         this.id = _id
@@ -130,13 +133,15 @@ class TeamInfoB {
     
 }
 
+
+//optinal class for OverUnder
 class OverUnderA {
     constructor(_all){
         this.all = _all
     }
 }
 
-
+//optinal class for WInsLoses
 class WinsLose {
     constructor(_wins){
         this.wins = _wins

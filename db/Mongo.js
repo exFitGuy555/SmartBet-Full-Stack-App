@@ -1,5 +1,6 @@
 /* -----------------------------------------------------------------Mongo Connection----------------------------------------------------- */
 
+/* Module dependencies*/
 const mongoose = require('mongoose');
 const Joi = require('@hapi/joi')
 const jwt = require('jsonwebtoken')
@@ -193,7 +194,7 @@ const profile = function (req, res) {
 
 
 
-//Go to profile after login
+//Go to profile data after login
 const getOddsLogin = async function (req, res) {
     const {
         error
@@ -237,7 +238,7 @@ const getOddsLogin = async function (req, res) {
     /* ---------------------------beggining of save Bid procces */
 
     console.log(userId)
-    console.log(req.body)
+    console.log(req.session)
     const teamA = req.body.teamA
     const teamB = req.body.teamB
     const OverUnder = req.body.overUnder

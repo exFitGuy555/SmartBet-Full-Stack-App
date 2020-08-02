@@ -136,7 +136,7 @@ async function getTeamLiveOptions() {
 
 
 
-//Start of Getting value from LiveScore home PAGE
+//--------------------------------Start of Getting value from LiveScore home PAGE
 let selectElement = document.getElementById("parentIdLive");
 let valueSelected = selectElement.options[selectElement.selectedIndex].value; // get selected option value
 
@@ -159,7 +159,7 @@ function getNumbers(string) {
     }
     return parseInt(int);
 }
-//End of Getting value from LiveScore home PAGE
+//-----------------------------End of Getting value from LiveScore home PAGE
 
 
 
@@ -180,7 +180,7 @@ async function getTeamsForOdds() {
 }
 
 
-//fetching the team stats and data - right team
+//fetching the team stats and data - Right team
 async function getTeamDataOdds(id) {
     let _url = `https://api-basketball.p.rapidapi.com/statistics?league=12&season=2018-2019&team=${id}`
     const data = await fetch(_url, {
@@ -196,7 +196,7 @@ async function getTeamDataOdds(id) {
 
 }
 
-//fetching the team stats and data - left team
+//fetching the team stats and data - Left team
 async function getTeamDataOddsB(id) {
     let _url = `https://api-basketball.p.rapidapi.com/statistics?league=12&season=2018-2019&team=${id}`
     const data = await fetch(_url, {
@@ -210,8 +210,7 @@ async function getTeamDataOddsB(id) {
     return newOdd.all
 }
 
-
-//******stopped here , numbers indeed sum and rendered to the DOM , continue.... */
+//OverUnder Total Summary
 async function sumOverUnder() {
     let first = await getInfoFromOptionOddsB().then(id => getTeamDataOddsB(id))
     let sec = await getInfoFromOptionOdds().then(id => getTeamDataOddsB(id))
@@ -233,7 +232,7 @@ async function sumOverUnder() {
 
 
 
-//------------------------------------------------------------left side team---------------------------------------------------------------
+//------------------------------------------------------------Odds Start left side team ---------------------------------------------------------------
 //Start of Getting value from select team at Odds PAGE - OVER UNDER BET
 let selectElementOddsA = document.querySelector(".select-odd");
 let valueSelectedOdds = selectElementOddsA.options[selectElementOddsA.selectedIndex].value; // get selected option value
@@ -259,11 +258,11 @@ function getNumbersB(string) {
     }
     return parseInt(int);
 }
-//END of Getting value from select team at Odds PAGE ==> will lead to page manager and getTotalA will return the final number
+//==> will lead to page manager and getTotalA will return the final number
 
-/* --------------------------------------right side team------------------ */
+//------------------------------------------------------------Odds Start right side team ---------------------------------------------------------------
 
-//Start of Getting value from select team at Odds PAGE - OVER UNDER BET
+//------------------------Getting value from select team at Odds PAGE - OVER UNDER BET
 let selectElementOddsB = document.querySelector(".select-oddB");
 let valueSelectedOddsB = selectElementOddsB.options[selectElementOddsB.selectedIndex].value; // get selected option value
 
@@ -320,7 +319,7 @@ async function getTeamWinsOddsB(id) {
 }
 
 
-
+//Precenteges Calculation Summary
 async function sumWinsPrecentages() {
     let firstW = await getInfoFromOptionOdds().then(id => getTeamWinsOdds(id))
     let secW = await getInfoFromOptionOddsB().then(id => getTeamWinsOddsB(id))

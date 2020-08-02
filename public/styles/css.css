@@ -1367,3 +1367,50 @@ overflow-y: scroll;
 .save{
     margin-top: 4em;
 }
+
+.section-chat{
+    width: 100%;
+    text-align: center;
+}
+
+.form-chat{
+    margin-top: 20em;
+    width: 600px;
+    background-color: lightgrey;
+    margin: auto;
+
+}
+
+ 
+
+#message-container{
+    width: 600px;
+    margin: auto;
+    height: 300px;
+    text-align: justify;
+    overflow: scroll;
+    overflow-x: visible;
+    
+
+
+  
+}
+
+.h2-chat{
+  
+     margin:auto;
+     margin-top: -100px;
+}
+
+#massage-input{
+    width: 600px;
+}
+
+.message-div{
+    padding:5px;
+    font-family: 'graduate';
+    font-weight: bold;
+    border-bottom: 1px dotted lightgrey;
+    border-spacing: 10px;
+}
+
