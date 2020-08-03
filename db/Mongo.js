@@ -254,7 +254,8 @@ const getOddsLogin = async function (req, res) {
         OverUnder,
         WinLose
     });
-
+    
+    console.log(usermongo)
     usermongo.save();
 
     res.render('OddSave.ejs', { 

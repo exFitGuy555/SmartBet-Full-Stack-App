@@ -41,4 +41,8 @@ function appendMessage(message) {
     messageElement.className = 'message-div'
     messageElement.innerHTML = message
     messageContainer.append(messageElement)
+    $("#message-container").animate({
+        scrollTop: 20000000
+    }, "slow");
+
 }

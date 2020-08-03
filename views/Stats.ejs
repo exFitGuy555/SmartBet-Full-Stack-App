@@ -27,12 +27,14 @@
         <header>
             <nav>
                 <ul>
-                       <li><a href="/">Home</a></li>
-                       <li><a href="/Stats">Stats</a></li>
-                       <li><a href="/Odds">Odds</a></li>
-                       <li><a href="/login">Log In</a></li>
-                       <li><a href="/Chat">Live Bet Ring</a></li>
-                       <li><a href="/MyOdds">My Account</a></li>
+                         <li><a href="/">Home</a></li>
+                         <li><a href="/Stats">Stats</a></li>
+                         <li><a href="/Odds">Odds</a></li>
+                         <li><a href="/Chat">Live Bet Ring</a></li>
+                         <li><a href="/MyOdds">My Account</a></li>
+                         <li><a href="/login">Log In</a></li>
+                         <li><a class="btn btn-lg btn-danger logout" href="/home/logout" title="">Logout</a></li>
+
                 </ul>
             </nav>
             <h2>WE BET SMART.</h2>
@@ -44,7 +46,7 @@
 
         <section>
 
-            <h2 class="sec-stat-h">Player's Statistics</h2>
+            <h2 class="sec-stat-h">Players & Teams Statistics</h2>
 
             <div class="Player-formwrap">
                 <form id="fields">
@@ -76,8 +78,7 @@
 
 
 
-            <div id="team-wrap" class="fixmarg">
-                <h2>Team's Stats</h2>
+            <div style="margin-top: -15em;" id="team-wrap" class="fixmarg">
                 <div class="Team-formwrap">
                     <img class="Team-logo1" src="/public/images/jersey.png" alt="">
                     <img class="Team-logo2" src="/public/images/jersey.png" alt="">
@@ -90,6 +91,8 @@
                         <input autocomplete="off" class="prevent team-search-year form-control" type="text"
                             placeholder="ENTER A YEAR!">
                         <button id="yearbtn-boot" type="button" class="ml-2 btn btn-outline-warning">Search</button>
+                        
+
                     </form>
                 </div>
 
@@ -100,7 +103,7 @@
 
 
 
-            <div id="Team-ChartWrap">
+            <div style="margin-top: -5em;" id="Team-ChartWrap">
                 <div id="parent">
                 </div>
                 <canvas id="teamStat-chart" width="1000" height="500"></canvas>
@@ -111,6 +114,7 @@
 
         <article>
             <h2>Share Your thoughts and Bet together!</h2>
+
             <p>Another cool Feature We have in SmartBet is Our BetMarket<br>
                 BetMarket offers you the option to share with others users your<br>
                 feelimg about some specific games and stats you aim to bet on, and allows<br> you

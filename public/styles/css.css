@@ -44,11 +44,11 @@ html {
 
 
 .sec-stat-h {
-    width: 335px;
+    width: 480px;
     margin-top: -8.5em;
     border-bottom: 1px dotted black;
     position: relative;
-    left: 14.5em;
+    left: 12em;
 
 }
 
@@ -1313,7 +1313,7 @@ mark {
 }
 
 ::-webkit-scrollbar {
-    display: scroll;
+    display: scrolnonel;
 }
 
 
@@ -1345,7 +1345,7 @@ overflow-y: scroll;
     border-bottom: 1px dotted black;
     width: 500px;
     margin: auto;
-    margin-top: 1em;
+    margin-top: 2em;
 
 }
 
@@ -1366,7 +1366,8 @@ overflow-y: scroll;
 }
 
 .save{
-    margin-top: 4em;
+    margin-top: 2.5em;
+    text-align: center;
 }
 
 .section-chat{
@@ -1376,9 +1377,7 @@ overflow-y: scroll;
 
 .form-chat{
     margin-top: 20em;
-    width: 600px;
-    background-color: lightgrey;
-    margin: auto;
+    margin: 1em;
 
 }
 
@@ -1386,11 +1385,14 @@ overflow-y: scroll;
 
 #message-container{
     width: 600px;
-    margin: auto;
+    margin: 1em;
+    margin-left: 17em;
+    margin-top: -3em;
     height: 300px;
     text-align: justify;
-    overflow: scroll;
+    overflow: hidden;
     overflow-x: visible;
+    overflow: auto;
     
 
 
@@ -1398,22 +1400,64 @@ overflow-y: scroll;
 }
 
 .h2-chat{
-  
-     margin:auto;
-     margin-top: -100px;
+    margin-left: 9em;
+     margin-top: -22em;
+     margin-bottom: 2em;
+     border-bottom: 1px dotted #000;
+    width: 600px;
 }
 
 #massage-input{
     width: 600px;
+    border-radius: 5px;
+    font-family: 'graduate';
 }
 
 .message-div{
     padding:5px;
     font-family: 'graduate';
     font-weight: bold;
-    border-bottom: 1px dotted lightgrey;
     border-spacing: 10px;
 }
 
 
 
+.logout{
+position: relative;
+left: 40em;
+top: -1.2em;
+}
+
+
+.chat-pic2{
+    width:  400px;
+    height: 550px;
+    position: relative;
+    left:34em;
+    top: -13em;
+    z-index: -1;
+}
+
+#power-chat{
+    position: relative;
+    top: 30px;
+    color: white;
+    font-family: 'graduate';
+    font-size: 2em;
+    color: white;
+    display: flex;
+    font-family: 'Graduate',
+    cursive;
+}
+
+#powered-chat{
+        position: relative;
+        top: 120px;
+        color: white;
+        font-size: 1em;
+        color: white;
+         margin: auto;
+         margin-left: 16em;
+
+
+        }
