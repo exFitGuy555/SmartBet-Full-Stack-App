@@ -42,5 +42,3 @@ function appendMessage(message) {
     messageElement.innerHTML = message
     messageContainer.append(messageElement)
 }
-
-

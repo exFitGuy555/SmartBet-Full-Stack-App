@@ -54,6 +54,7 @@ app.get('/home/check', mongo.check); // development proposed Only - checking our
 //Post
 app.post('/Bids', mongo.getOddsLogin); //call for SaveBet (SaveBids)  in Odds page
 app.post('/login', user.existSql); //call for login ==> will lead to Profile
+app.post('/signup', user.signup); //call for login ==> will lead to Profile
 
 
  

@@ -1,5 +1,4 @@
 window.onload = () => {
-
   
   //creating the Event
   $submit.addEventListener("click", () => {

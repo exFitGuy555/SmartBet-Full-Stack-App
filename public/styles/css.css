@@ -1307,13 +1307,13 @@ mark {
     font-weight: bold;
     font-family: 'graduate';
     overflow-x: hidden;
-    overflow-y: scroll;
+    overflow-y: hidden;
     line-height: 2;
     
 }
 
 ::-webkit-scrollbar {
-    display: none;
+    display: scroll;
 }
 
 
@@ -1327,8 +1327,9 @@ mark {
   line-height: 3;
 white-space: pre-line;
 padding-bottom: 2em;
+padding-right: 20px;
 height: 500px;
-overflow-x: scroll;
+overflow-x: hidden;
 overflow-y: scroll;
 }
 
@@ -1413,4 +1414,6 @@ overflow-y: scroll;
     border-bottom: 1px dotted lightgrey;
     border-spacing: 10px;
 }
+
+
 
