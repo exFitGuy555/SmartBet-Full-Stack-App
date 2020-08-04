@@ -119,7 +119,7 @@ const createMongoUser = async (uuid, mongoNum) => {
         })
     }
 
-    let user = await User.findOne({
+    let user = await User. findOne({
         uuid: uuid
     }, );
     if (user) {
