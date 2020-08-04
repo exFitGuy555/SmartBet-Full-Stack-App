@@ -1,8 +1,8 @@
 
 # SmartBet
 
-SmartBet is a Smart algorithm that help BasketBall Bettors around the world to increase 
-there chances of winning the prize in each bet, by allow its users to bet a  Smart, Stats based Bet.
+SmartBet is a Smart algorithm that helps Basketball Bettors around the world increase 
+their chances of winning the prize in each bet, by allowing its users to bet a smart stats based Bet.
 
 # Project Architecture:
 
@@ -10,15 +10,14 @@ there chances of winning the prize in each bet, by allow its users to bet a  Sma
   
 # Backgroud:
 
-When was the last time you heard about Social-Stats Based Sport Bets ?!  <br>
-SmartBet Algorithm made specific for that.
-Give People The numbers, Calculate the Number for them, and Create A live Connection between them, 
-so they well be able to take one another opinion on upcoming games, and increase those numbers even more !
-
+When was the last time you heard of social stats based Sport Bets ?!  <br>
+SmartBet Algorithm was made specifically for that.
+We give the bettors the statistics, calculate the numbers for them, and allow a live chat comunication between them. 
+The live chat will allow users to get insights on other opinions on the results of upcoming games, while increasing their chances to win the bet and get the right numbers.
 
 # Special Features:
-  - Get Live Score Box for every major league Worlwide
-  - Get Stats for every Player & Team in the NBA for the last 20 Years
+  - Get a live Score Box for every major league Worlwide
+  - Get Stats for every Player & Team in the NBA in the past 20 Years
   - Get Odds for upcoming games based on current season Stats Calculation
 
 # DB WorkFlow:
