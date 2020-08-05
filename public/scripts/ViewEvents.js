@@ -15,7 +15,9 @@ window.onload = () => {
       .then(createStats)
       .then(() => {});
     document.querySelector(".Player-formwrap").style.transform =
-      "translateX(-32em)";
+      "translateX(-33em)";
+
+      
   });
 
   
@@ -35,7 +37,7 @@ window.onload = () => {
     getTeamId(name)
       .then((id) => getTeamData(id, season).then(CreateTeamStats))
       .then(() => {});
-    document.getElementById("team-wrap").style.transform = "translateX(-32em)";
+    document.getElementById("fields").style.transform = "translateX(-33em)";
   });
 
   getTeamLiveId().then(getLeagueOptions);

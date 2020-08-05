@@ -27,45 +27,38 @@
         <header>
             <nav>
                 <ul>
-                         <li><a href="/">Home</a></li>
-                         <li><a href="/Stats">Stats</a></li>
-                         <li><a href="/Odds">Odds</a></li>
-                         <li><a href="/Chat">Live Bet Ring</a></li>
-                         <li><a href="/MyOdds">My Account</a></li>
-                         <li><a href="/login">Log In</a></li>
-                         <li><a class="btn btn-lg btn-danger logout" href="/home/logout" title="">Logout</a></li>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/Stats">Stats</a></li>
+                    <li><a href="/Odds">Odds</a></li>
+                    <li><a href="/Chat">Live Bet Ring</a></li>
+                    <li><a href="/MyOdds">My Account</a></li>
+                    <li><a href="/login">Log In</a></li>
+                    <li><a class="btn btn-lg btn-danger logout" href="/home/logout" title="">Logout</a></li>
 
                 </ul>
             </nav>
             <h2>WE BET SMART.</h2>
             <!--             <img class="coin" src="/img/pngguru.com (22).png" alt="">
  -->
-
+<h2 class="h2-stat">Player & Team Statistics</h2>
         </header>
 
 
-        <section>
-
-            <h2 class="sec-stat-h">Players & Teams Statistics</h2>
-
-            <div class="Player-formwrap">
-                <form id="fields">
-                    <img id="jer" src="/public/images/jersey.png" alt="">
-                    <input autocomplete="off" id="player-name" class="prevent search form-control" type="text"
-                        placeholder="PLAYER NAME!">
-                    <input autocomplete="off" id="year" class="prevent search-year form-control" type="text"
-                        placeholder="ENTER A YEAR!">
-                    <button id="btn-boot" type="button" class="ml-2 btn btn-outline-warning">Search</button>
+        <section id="section-stat">
+            <div class="d-flex justify-content-center">
+                <form class="sec-stat-h Player-formwrap">
+                    <div class="center-input-player">
+                        <input id="player-name" class="prevent" type="text" name="" placeholder="PLAYER NAME!">
+                        <input id="year" class="prevent search-year" type=" text" name=""
+                            placeholder="ENTER A YEAR!"><br>
+                        <button id="btn-boot" type="button" class="btn btn-outline-warning">Search</button>
+                    </div>
+                    <div class="hint">
+                        <div class="pyear-format">*Name ex.:Lebron james</div>
+                        <div class="ppyear-format">*Year ex.:2018</div>
+                    </div>
                 </form>
-                <div class="pyear-format">*Name ex.:Lebron james</div>
-                <div class="ppyear-format">*Year ex.:2018</div>
-            </div>p
-
-
-            <div class="showerr">THERE IS NO DATA IN THAT PLAYER NAME / YEAR</div>
-            <div class="teamerr">THERE IS NO DATA IN THAT Team NAME / YEAR</div>
-
-
+            </div>
 
             <div id="ChartWrap">
                 <div id="parent">
@@ -76,54 +69,56 @@
 
 
 
+            <div class="showerr">THERE IS NO DATA IN THAT PLAYER NAME / YEAR</div>
+            <div class="teamerr">THERE IS NO DATA IN THAT Team NAME / YEAR</div>
 
 
-            <div style="margin-top: -15em;" id="team-wrap" class="fixmarg">
+
+
+            <div class="d-flex justify-content-center">
                 <div class="Team-formwrap">
-                    <img class="Team-logo1" src="/public/images/jersey.png" alt="">
-                    <img class="Team-logo2" src="/public/images/jersey.png" alt="">
-                    <img class="Team-logo3" src="/public/images/jersey.png" alt="">
-
-
                     <form id="fields" class="team-field">
-                        <input autocomplete="off" id="team-name" class="prevent search form-control" type="text"
-                            placeholder="Enter Team NAME!">
-                        <input autocomplete="off" class="prevent team-search-year form-control" type="text"
-                            placeholder="ENTER A YEAR!">
-                        <button id="yearbtn-boot" type="button" class="ml-2 btn btn-outline-warning">Search</button>
-                        
-
+                        <div class="center-input-player">
+                            <input id="team-name" class="prevent" type="text" name=""
+                                placeholder="Enter Team NAME!"><br>
+                            <input id="year" class="prevent team-search-year" type=" text" name=""
+                                placeholder="ENTER A YEAR!"><br>
+                            <button id="yearbtn-boot" type="button" class="btn btn-outline-warning">Search</button>
+                        </div>
                     </form>
                 </div>
-
-                <div class="year-format">*Name ex.:Miami heat</div>
-                <div class="year-format">*Year ex.:2018-2019</div>
-
             </div>
 
 
 
-            <div style="margin-top: -5em;" id="Team-ChartWrap">
+            <div id="ChartWrap">
                 <div id="parent">
                 </div>
-                <canvas id="teamStat-chart" width="1000" height="500"></canvas>
+                <canvas id="Stat-chart"></canvas>
+            </div>
 
+
+            <div id="ChartWrap">
+                <div id="parent">
+                </div>
+                <canvas id="teamStat-chart"></canvas>
             </div>
 
         </section>
 
-        <article>
+        <article class="artic">
             <h2>Share Your thoughts and Bet together!</h2>
 
-            <p>Another cool Feature We have in SmartBet is Our BetMarket<br>
-                BetMarket offers you the option to share with others users your<br>
-                feelimg about some specific games and stats you aim to bet on, and allows<br> you
-                not only to speak your mind out and use others help, but also<br> Cooperate
-                with others and bet together.</p>
+            <p>Another cool Feature We have in SmartBet is Our Live Chat.<br>
+                the Live Chat offers you the option to share your thoughts and <br>opinions on specific games and stats
+                you want to bet on with <br>other users.
+                It allows you
+                to speak your mind and<br> cooperate
+                with others to bet together.</p>
             <img src="/public/images/money.png" alt="">
             <br>
-            <h3 class="goto-odds">So Now after you got your STATS, Dont Forget to check our <a
-                    href="/Odds">ODDS</a> page to
+            <h3 class="goto-odds">So Now after you got your STATS, Dont Forget to check our <a href="/Odds">ODDS</a>
+                page to
                 complete your SmartBet</h3>
         </article>
 
