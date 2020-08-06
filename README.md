@@ -6,7 +6,7 @@ their chances of winning the prize in each bet, by allowing its users to bet a s
 
 # Project Architecture:
 
-![Image](public/images/POWERPNT_dYAEyCWh1S.png)
+![Image](public/images/POWERPNT_drtZEHNlCJ.png)
   
 # Backgroud:
 
