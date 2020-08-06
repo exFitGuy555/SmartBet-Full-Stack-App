@@ -58,7 +58,7 @@ The live chat will allow users to get insights on other opinions on the results 
 
 
 
-# Users Communication:
+# Users LiveChat:
   - Users able to Live Chat with Other Users to share their Bet approach to Upcoming games
   
   ![Image](public/images/finalchat.png)
