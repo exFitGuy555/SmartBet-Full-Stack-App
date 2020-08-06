@@ -813,7 +813,6 @@ article img {
     width: 300px;
     height: 400px;
     position: relative;
-    z-index: -1;
     top:3em;
     display: inline-block;
     border-radius: 15px 15px 15px 15px;
@@ -916,7 +915,6 @@ article img {
     position: absolute;
     left: 370px;
     display: inline-block;
-    z-index: -1;
     top: 3em;
 }
 
@@ -1531,4 +1529,10 @@ font-family: 'graduate';
     transform: scale(0.6);
     margin-top: -200px;
     margin-left: 310px;
+}
+
+.wrapa {
+    text-align: center;
+    margin-left: -53em;
+    margin-top: -20em;
 }
